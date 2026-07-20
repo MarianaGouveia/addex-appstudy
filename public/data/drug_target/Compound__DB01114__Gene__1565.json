@@ -1,0 +1,546 @@
+{
+  "id": "Compound::DB01114 - Gene::1565",
+  "verbalization": "The visible evidence suggests that Chlorphenamine is indirectly linked to Cyp2d6 through its inclusion in the class of Histamine H1 Receptor Antagonists, which includes Carbinoxamine and Diphenhydramine. These compounds bind to Cyp2d6, indicating a potential pharmacological interaction involving the enzyme. The evidence is supported by multiple paths, with Chlorphenamine being a common ancestor in all three pathways, reinforcing its role in the relationship. The low scores in the paths suggest that while there is a general association, the strength of the connection varies, likely due to differences in the specific mechanisms of action and the degree of interaction between Chlorphenamine and Cyp2d6. The presence of multiple pathways pointing to Cyp2d6 as a target highlights the potential for Chlorphenamine to influence the enzyme through different mechanisms, though the exact nature of the interaction remains uncertain.",
+  "paths": [
+    {
+      "score": {
+        "ic_mean": 0.5615,
+        "final_score": 0.5615
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Histamine H1 Receptor Antagonists",
+          "type": "Pharmacologic Class"
+        },
+        {
+          "id": "Carbinoxamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Histamine H1 Receptor Antagonists",
+          "label": "is included in"
+        },
+        {
+          "source": "Histamine H1 Receptor Antagonists",
+          "target": "Carbinoxamine",
+          "label": "includes"
+        },
+        {
+          "source": "Carbinoxamine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Carbinoxamine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6892"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5322,
+        "final_score": 0.5322
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Labyrinthitis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Clemastine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Labyrinthitis",
+          "label": "causes"
+        },
+        {
+          "source": "Labyrinthitis",
+          "target": "Clemastine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Clemastine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Clemastine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6893"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5275,
+        "final_score": 0.5275
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Histamine H1 Receptor Antagonists",
+          "type": "Pharmacologic Class"
+        },
+        {
+          "id": "Diphenhydramine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Histamine H1 Receptor Antagonists",
+          "label": "is included in"
+        },
+        {
+          "source": "Histamine H1 Receptor Antagonists",
+          "target": "Diphenhydramine",
+          "label": "includes"
+        },
+        {
+          "source": "Diphenhydramine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Diphenhydramine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6894"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5065,
+        "final_score": 0.5065
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Labyrinthitis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Carbinoxamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Labyrinthitis",
+          "label": "causes"
+        },
+        {
+          "source": "Labyrinthitis",
+          "target": "Carbinoxamine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Carbinoxamine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Carbinoxamine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6895"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4858,
+        "final_score": 0.4858
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Hysteria",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Carbinoxamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Hysteria",
+          "label": "causes"
+        },
+        {
+          "source": "Hysteria",
+          "target": "Carbinoxamine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Carbinoxamine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Carbinoxamine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6896"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4816,
+        "final_score": 0.4816
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Conversion Disorder",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Carbinoxamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Conversion Disorder",
+          "label": "causes"
+        },
+        {
+          "source": "Conversion Disorder",
+          "target": "Carbinoxamine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Carbinoxamine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Carbinoxamine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6897"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4732,
+        "final_score": 0.4732
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Captodiame",
+          "type": "Compound"
+        },
+        {
+          "id": "Brompheniramine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Captodiame",
+          "label": "resembles"
+        },
+        {
+          "source": "Captodiame",
+          "target": "Brompheniramine",
+          "label": "resembles"
+        },
+        {
+          "source": "Brompheniramine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Captodiame": [
+          "Organic Aromatic Compound"
+        ],
+        "Chlorphenamine,Brompheniramine": [
+          "Pyridines"
+        ],
+        "Captodiame,Brompheniramine": [
+          "Organic Cyclic Compound",
+          "Histamine-1 Receptor Antagonist"
+        ]
+      },
+      "id": "path_6898"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4726,
+        "final_score": 0.4726
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Labyrinthitis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Diphenhydramine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Labyrinthitis",
+          "label": "causes"
+        },
+        {
+          "source": "Labyrinthitis",
+          "target": "Diphenhydramine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Diphenhydramine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Diphenhydramine": [
+          "Tertiary Amino Compound"
+        ]
+      },
+      "id": "path_6899"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4542,
+        "final_score": 0.4542
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Captodiame",
+          "type": "Compound"
+        },
+        {
+          "id": "Carbinoxamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Captodiame",
+          "label": "resembles"
+        },
+        {
+          "source": "Captodiame",
+          "target": "Carbinoxamine",
+          "label": "resembles"
+        },
+        {
+          "source": "Carbinoxamine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Captodiame": [
+          "Organic Aromatic Compound"
+        ],
+        "Chlorphenamine,Carbinoxamine": [
+          "Tertiary Amino Compound"
+        ],
+        "Captodiame,Carbinoxamine": [
+          "Organic Aromatic Compound",
+          "Histamine-1 Receptor Antagonist"
+        ]
+      },
+      "id": "path_6900"
+    },
+    {
+      "score": {
+        "ic_mean": 0.3432,
+        "final_score": 0.3432
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Bepotastine",
+          "type": "Compound"
+        },
+        {
+          "id": "Domperidone",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Bepotastine",
+          "label": "resembles"
+        },
+        {
+          "source": "Bepotastine",
+          "target": "Domperidone",
+          "label": "resembles"
+        },
+        {
+          "source": "Domperidone",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Bepotastine": [
+          "Pyridines"
+        ],
+        "Chlorphenamine,Domperidone": [
+          "Organonitrogen Heterocyclic Compound"
+        ],
+        "Bepotastine,Domperidone": [
+          "Piperidines"
+        ]
+      },
+      "id": "path_6901"
+    },
+    {
+      "score": {
+        "ic_mean": 0.2492,
+        "final_score": 0.2492
+      },
+      "nodes": [
+        {
+          "id": "Chlorphenamine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cloperastine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cinnarizine",
+          "type": "Compound"
+        },
+        {
+          "id": "Cyp2d6",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Chlorphenamine",
+          "target": "Cloperastine",
+          "label": "resembles"
+        },
+        {
+          "source": "Cloperastine",
+          "target": "Cinnarizine",
+          "label": "resembles"
+        },
+        {
+          "source": "Cinnarizine",
+          "target": "Cyp2d6",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Chlorphenamine,Cinnarizine": [
+          "Tertiary Amino Compound"
+        ],
+        "Cloperastine,Cinnarizine": [
+          "Histamine-1 Receptor Antagonist"
+        ]
+      },
+      "id": "path_6902"
+    }
+  ]
+}

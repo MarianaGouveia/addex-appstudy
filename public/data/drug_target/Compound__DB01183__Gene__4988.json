@@ -1,0 +1,326 @@
+{
+  "id": "Compound::DB01183 - Gene::4988",
+  "verbalization": "The visible evidence suggests that Naloxone may be associated with Oprm1 through a series of molecular interactions. Naloxone is classified as an opioid antagonist, and multiple pathways indicate that it resembles other opioid analgesics such as Levallorphan, Dezocine, Pentazocine, and Levorphanol, which in turn bind to Oprm1. This implies that Naloxone may exert its effects through a mechanism similar to those of these compounds, potentially by competing for the same binding sites on Oprm1. However, the strength of the evidence varies, with some paths providing stronger support for the direct interaction, while others offer indirect evidence through resemblance to related compounds. The consistency of the resemblance relationships across different pathways suggests a possible functional overlap, but the lack of direct evidence for Naloxone binding to Oprm1 limits the certainty of the conclusion. The observed interactions highlight the potential for Naloxone to modulate Oprm1 activity, though further experimental validation is needed to confirm the exact mechanism of action.",
+  "paths": [
+    {
+      "score": {
+        "ic_mean": 0.8728,
+        "final_score": 0.8728
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Opioid Antagonists",
+          "type": "Pharmacologic Class"
+        },
+        {
+          "id": "Methylnaltrexone",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Opioid Antagonists",
+          "label": "is included in"
+        },
+        {
+          "source": "Opioid Antagonists",
+          "target": "Methylnaltrexone",
+          "label": "includes"
+        },
+        {
+          "source": "Methylnaltrexone",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Methylnaltrexone": [
+          "Organic Cyclic Compound",
+          "Opiate Antagonist"
+        ]
+      },
+      "id": "path_9998"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5866,
+        "final_score": 0.5866
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Levallorphan",
+          "type": "Compound"
+        },
+        {
+          "id": "Dezocine",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Levallorphan",
+          "label": "resembles"
+        },
+        {
+          "source": "Levallorphan",
+          "target": "Dezocine",
+          "label": "resembles"
+        },
+        {
+          "source": "Dezocine",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Levallorphan": [
+          "Morphinane Alkaloid",
+          "Opiate Antagonist"
+        ],
+        "Naloxone,Dezocine": [
+          "Agent Affecting Nervous System",
+          "Organonitrogen Compound"
+        ],
+        "Levallorphan,Dezocine": [
+          "Agent Affecting Nervous System",
+          "Organonitrogen Compound"
+        ]
+      },
+      "id": "path_9999"
+    },
+    {
+      "score": {
+        "ic_mean": 0.565,
+        "final_score": 0.565
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Levallorphan",
+          "type": "Compound"
+        },
+        {
+          "id": "Pentazocine",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Levallorphan",
+          "label": "resembles"
+        },
+        {
+          "source": "Levallorphan",
+          "target": "Pentazocine",
+          "label": "resembles"
+        },
+        {
+          "source": "Pentazocine",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Levallorphan": [
+          "Morphinane Alkaloid",
+          "Opiate Antagonist"
+        ],
+        "Naloxone,Pentazocine": [
+          "Agent Affecting Nervous System",
+          "Organonitrogen Compound"
+        ],
+        "Levallorphan,Pentazocine": [
+          "Agent Affecting Nervous System",
+          "Organonitrogen Compound"
+        ]
+      },
+      "id": "path_10000"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5609,
+        "final_score": 0.5609
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Levallorphan",
+          "type": "Compound"
+        },
+        {
+          "id": "Butorphanol",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Levallorphan",
+          "label": "resembles"
+        },
+        {
+          "source": "Levallorphan",
+          "target": "Butorphanol",
+          "label": "resembles"
+        },
+        {
+          "source": "Butorphanol",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Levallorphan": [
+          "Morphinane Alkaloid",
+          "Opiate Antagonist"
+        ],
+        "Naloxone,Butorphanol": [
+          "Agent Affecting Nervous System",
+          "Morphinane Alkaloid"
+        ],
+        "Levallorphan,Butorphanol": [
+          "Agent Affecting Nervous System",
+          "Morphinane Alkaloid"
+        ]
+      },
+      "id": "path_10001"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5609,
+        "final_score": 0.5609
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Levallorphan",
+          "type": "Compound"
+        },
+        {
+          "id": "Levorphanol",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Levallorphan",
+          "label": "resembles"
+        },
+        {
+          "source": "Levallorphan",
+          "target": "Levorphanol",
+          "label": "resembles"
+        },
+        {
+          "source": "Levorphanol",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Levallorphan": [
+          "Morphinane Alkaloid",
+          "Opiate Antagonist"
+        ],
+        "Naloxone,Levorphanol": [
+          "Agent Affecting Nervous System",
+          "Morphinane Alkaloid"
+        ],
+        "Levallorphan,Levorphanol": [
+          "Agent Affecting Nervous System",
+          "Morphinane Alkaloid"
+        ]
+      },
+      "id": "path_10002"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4982,
+        "final_score": 0.4982
+      },
+      "nodes": [
+        {
+          "id": "Naloxone",
+          "type": "Compound"
+        },
+        {
+          "id": "Drug Dependence",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Pentazocine",
+          "type": "Compound"
+        },
+        {
+          "id": "Oprm1",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Naloxone",
+          "target": "Drug Dependence",
+          "label": "causes"
+        },
+        {
+          "source": "Drug Dependence",
+          "target": "Pentazocine",
+          "label": "is caused by"
+        },
+        {
+          "source": "Pentazocine",
+          "target": "Oprm1",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Naloxone,Pentazocine": [
+          "Agent Affecting Nervous System",
+          "Organonitrogen Compound"
+        ]
+      },
+      "id": "path_10003"
+    }
+  ]
+}

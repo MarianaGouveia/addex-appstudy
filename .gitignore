@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Python virtual envs (anywhere in the tree, e.g. rex/.venv/)
+**/.venv/
+
+# Next.js build output
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# Local env vars
+.env*.local
+
+# OS / editor
+.DS_Store
+.claude/
+
+# Auto-assembled merged graphs that exceed git/GitHub size limits.
+# REx reassembles them on demand from the graph_part*.txt shards in the
+# same directory, which ARE committed. Add new entries here when a new
+# dataset's merged graph file becomes too large to push.
+public/datasets/hetionet/drug_repurposing/graph.txt
+public/datasets/hetionet/drug_target/graph.txt
+public/datasets/primekg/drug_repurposing/graph.txt

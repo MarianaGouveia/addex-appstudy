@@ -1,0 +1,492 @@
+{
+  "id": "Compound::DB00175 - Disease::DOID:1936",
+  "verbalization": "The visible evidence suggests that Pravastatin may be associated with atherosclerosis through multiple indirect pathways. Pravastatin is linked to muscle swelling and immune-mediated necrotising myopathy, both of which are mediated by Rosuvastatin, which in turn treats atherosclerosis. This indicates a potential role of Pravastatin in modulating inflammatory and metabolic processes that contribute to atherosclerosis. Additionally, Pravastatin's relationship with Ezetimibe, which also treats atherosclerosis, further supports the idea that Pravastatin may influence atherosclerosis through different mechanisms, such as enhancing cholesterol metabolism or reducing inflammation. The cumulative evidence suggests that Pravastatin could be considered a potential repurposable drug for atherosclerosis, though the exact mechanisms and clinical relevance require further investigation.",
+  "paths": [
+    {
+      "score": {
+        "ic_mean": 0.6861,
+        "final_score": 0.6861
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "link": "https://www.drugbank.ca/drugs/DB00175",
+          "type": "Compound"
+        },
+        {
+          "id": "Muscle Swelling",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Rosuvastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Muscle Swelling",
+          "label": "causes"
+        },
+        {
+          "source": "Muscle Swelling",
+          "target": "Rosuvastatin",
+          "label": "is caused by"
+        },
+        {
+          "source": "Rosuvastatin",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Rosuvastatin": [
+          "Statin",
+          "Hmg-Coa Reductase Inhibitor"
+        ]
+      },
+      "id": "path_180"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6616,
+        "final_score": 0.6616
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Immune-mediated Necrotising Myopathy",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Rosuvastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Immune-mediated Necrotising Myopathy",
+          "label": "causes"
+        },
+        {
+          "source": "Immune-mediated Necrotising Myopathy",
+          "target": "Rosuvastatin",
+          "label": "is caused by"
+        },
+        {
+          "source": "Rosuvastatin",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Rosuvastatin": [
+          "Statin",
+          "Hmg-Coa Reductase Inhibitor"
+        ]
+      },
+      "id": "path_181"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6497,
+        "final_score": 0.6497
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Immune-mediated Necrotising Myopathy",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Ezetimibe",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Immune-mediated Necrotising Myopathy",
+          "label": "causes"
+        },
+        {
+          "source": "Immune-mediated Necrotising Myopathy",
+          "target": "Ezetimibe",
+          "label": "is caused by"
+        },
+        {
+          "source": "Ezetimibe",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Ezetimibe": [
+          "Antilipidemic Agent",
+          "Organooxygen Compound"
+        ]
+      },
+      "id": "path_182"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6188,
+        "final_score": 0.6188
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Dermatomyositis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Ezetimibe",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Dermatomyositis",
+          "label": "causes"
+        },
+        {
+          "source": "Dermatomyositis",
+          "target": "Ezetimibe",
+          "label": "is caused by"
+        },
+        {
+          "source": "Ezetimibe",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Ezetimibe": [
+          "Antilipidemic Agent",
+          "Organooxygen Compound"
+        ],
+        "Dermatomyositis,Atherosclerosis": [
+          "Non-Neoplastic Disorder By Site"
+        ]
+      },
+      "id": "path_183"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6103,
+        "final_score": 0.6103
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Myoglobinuria",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Rosuvastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Myoglobinuria",
+          "label": "causes"
+        },
+        {
+          "source": "Myoglobinuria",
+          "target": "Rosuvastatin",
+          "label": "is caused by"
+        },
+        {
+          "source": "Rosuvastatin",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Rosuvastatin": [
+          "Statin",
+          "Hmg-Coa Reductase Inhibitor"
+        ]
+      },
+      "id": "path_184"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6103,
+        "final_score": 0.6103
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Myoglobin Urine Present",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Rosuvastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Myoglobin Urine Present",
+          "label": "causes"
+        },
+        {
+          "source": "Myoglobin Urine Present",
+          "target": "Rosuvastatin",
+          "label": "is caused by"
+        },
+        {
+          "source": "Rosuvastatin",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Rosuvastatin": [
+          "Statin",
+          "Hmg-Coa Reductase Inhibitor"
+        ]
+      },
+      "id": "path_185"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6078,
+        "final_score": 0.6078
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Polymyalgia Rheumatica",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Ezetimibe",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Polymyalgia Rheumatica",
+          "label": "causes"
+        },
+        {
+          "source": "Polymyalgia Rheumatica",
+          "target": "Ezetimibe",
+          "label": "is caused by"
+        },
+        {
+          "source": "Ezetimibe",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Ezetimibe": [
+          "Antilipidemic Agent",
+          "Organooxygen Compound"
+        ],
+        "Polymyalgia Rheumatica,Atherosclerosis": [
+          "Disorder By Site"
+        ]
+      },
+      "id": "path_186"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5903,
+        "final_score": 0.5903
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Hypersensitive Syndrome",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Ezetimibe",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Hypersensitive Syndrome",
+          "label": "causes"
+        },
+        {
+          "source": "Hypersensitive Syndrome",
+          "target": "Ezetimibe",
+          "label": "is caused by"
+        },
+        {
+          "source": "Ezetimibe",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Ezetimibe": [
+          "Antilipidemic Agent",
+          "Organooxygen Compound"
+        ]
+      },
+      "id": "path_187"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5768,
+        "final_score": 0.5768
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Drug Reaction With Eosinophilia And Systemic Symptoms",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Ezetimibe",
+          "type": "Compound"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Drug Reaction With Eosinophilia And Systemic Symptoms",
+          "label": "causes"
+        },
+        {
+          "source": "Drug Reaction With Eosinophilia And Systemic Symptoms",
+          "target": "Ezetimibe",
+          "label": "is caused by"
+        },
+        {
+          "source": "Ezetimibe",
+          "target": "Atherosclerosis",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Pravastatin,Ezetimibe": [
+          "Antilipidemic Agent",
+          "Organooxygen Compound"
+        ]
+      },
+      "id": "path_188"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4714,
+        "final_score": 0.4714
+      },
+      "nodes": [
+        {
+          "id": "Pravastatin",
+          "type": "Compound"
+        },
+        {
+          "id": "Coronary Artery Disease",
+          "type": "Disease"
+        },
+        {
+          "id": "Brachiocephalic Artery",
+          "type": "Anatomy"
+        },
+        {
+          "id": "Atherosclerosis",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Pravastatin",
+          "target": "Coronary Artery Disease",
+          "label": "treats"
+        },
+        {
+          "source": "Coronary Artery Disease",
+          "target": "Brachiocephalic Artery",
+          "label": "localizes"
+        },
+        {
+          "source": "Brachiocephalic Artery",
+          "target": "Atherosclerosis",
+          "label": "is localized by"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Coronary Artery Disease,Atherosclerosis": [
+          "Non-Neoplastic Cardiovascular Disorder"
+        ]
+      },
+      "id": "path_189"
+    }
+  ]
+}

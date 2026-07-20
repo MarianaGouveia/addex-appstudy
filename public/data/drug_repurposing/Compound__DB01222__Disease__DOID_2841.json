@@ -1,0 +1,814 @@
+{
+  "id": "Compound::DB01222 - Disease::DOID:2841",
+  "verbalization": "The visible evidence suggests a potential relationship between Budesonide and Asthma, primarily through its role as a therapeutic glucocorticoid. Budesonide is linked to Asthma via a chain of causation that involves Beclomethasone, a closely related compound. Both Budesonide and Beclomethasone are classified as glucocorticoids, which are known to modulate inflammatory responses in the respiratory system. This suggests that Budesonide may exert its therapeutic effects on Asthma by reducing inflammation, potentially through mechanisms involving the immune system and airway remodeling.\n\nThe evidence also highlights that Budesonide is associated with other conditions, such as Oropharyngeal Candidiasis and Hyperadrenocorticism, which are both linked to Beclomethasone. These connections imply a broader pharmacological relationship between glucocorticoids and inflammatory disorders, reinforcing the possibility that Budesonide could be repurposed for Asthma treatment. However, the strength of this relationship is supported by multiple paths, with scores indicating a moderate level of confidence in the causal link.\n\nWhile the evidence is consistent and supportive, it is important to note that the relationship between Budesonide and Asthma is not yet fully established. Further research is needed to confirm the direct therapeutic effect of Budesonide on Asthma and to explore the underlying mechanisms. The current data suggests that Budesonide may have a role in the pathophysiology of Asthma, but more comprehensive studies are required to determine its potential as a repurposed drug.",
+  "paths": [
+    {
+      "score": {
+        "ic_mean": 0.6078,
+        "final_score": 0.6078
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Oropharyngeal Candidiasis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Beclomethasone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Oropharyngeal Candidiasis",
+          "label": "causes"
+        },
+        {
+          "source": "Oropharyngeal Candidiasis",
+          "target": "Beclomethasone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Beclomethasone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Beclomethasone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Oropharyngeal Candidiasis,Asthma": [
+          "Non-Neoplastic Disorder"
+        ]
+      },
+      "id": "path_612"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5904,
+        "final_score": 0.5904
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Hyperadrenocorticism",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Beclomethasone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Hyperadrenocorticism",
+          "label": "causes"
+        },
+        {
+          "source": "Hyperadrenocorticism",
+          "target": "Beclomethasone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Beclomethasone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Beclomethasone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_613"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5764,
+        "final_score": 0.5764
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Fluprednidene Acetate",
+          "type": "Compound"
+        },
+        {
+          "id": "Beclomethasone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Fluprednidene Acetate",
+          "label": "resembles"
+        },
+        {
+          "source": "Fluprednidene Acetate",
+          "target": "Beclomethasone",
+          "label": "resembles"
+        },
+        {
+          "source": "Beclomethasone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Beclomethasone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Budesonide,Fluprednidene Acetate": [
+          "Corticosteroid Hormone"
+        ],
+        "Fluprednidene Acetate,Beclomethasone": [
+          "Corticosteroid Hormone"
+        ]
+      },
+      "id": "path_614"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5624,
+        "final_score": 0.5624
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Corticosteroid Hormone Receptor Agonists",
+          "type": "Pharmacologic Class"
+        },
+        {
+          "id": "Hydrocortisone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Corticosteroid Hormone Receptor Agonists",
+          "label": "is included in"
+        },
+        {
+          "source": "Corticosteroid Hormone Receptor Agonists",
+          "target": "Hydrocortisone",
+          "label": "includes"
+        },
+        {
+          "source": "Hydrocortisone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Hydrocortisone": [
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_615"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5406,
+        "final_score": 0.5406
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Corticosteroid Hormone Receptor Agonists",
+          "type": "Pharmacologic Class"
+        },
+        {
+          "id": "Prednisolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Corticosteroid Hormone Receptor Agonists",
+          "label": "is included in"
+        },
+        {
+          "source": "Corticosteroid Hormone Receptor Agonists",
+          "target": "Prednisolone",
+          "label": "includes"
+        },
+        {
+          "source": "Prednisolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_616"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5289,
+        "final_score": 0.5289
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Bronchospasm Paradoxical",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Salmeterol",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Bronchospasm Paradoxical",
+          "label": "causes"
+        },
+        {
+          "source": "Bronchospasm Paradoxical",
+          "target": "Salmeterol",
+          "label": "is caused by"
+        },
+        {
+          "source": "Salmeterol",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Salmeterol": [
+          "Primary Alcohol"
+        ]
+      },
+      "id": "path_617"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5282,
+        "final_score": 0.5282
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Oropharyngeal Candidiasis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Tiotropium",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Oropharyngeal Candidiasis",
+          "label": "causes"
+        },
+        {
+          "source": "Oropharyngeal Candidiasis",
+          "target": "Tiotropium",
+          "label": "is caused by"
+        },
+        {
+          "source": "Tiotropium",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Oropharyngeal Candidiasis,Asthma": [
+          "Non-Neoplastic Disorder"
+        ],
+        "Budesonide,Tiotropium": [
+          "Organic Molecular Entity"
+        ]
+      },
+      "id": "path_618"
+    },
+    {
+      "score": {
+        "ic_mean": 0.504,
+        "final_score": 0.504
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Paramethasone",
+          "type": "Compound"
+        },
+        {
+          "id": "Prednisolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Paramethasone",
+          "label": "resembles"
+        },
+        {
+          "source": "Paramethasone",
+          "target": "Prednisolone",
+          "label": "resembles"
+        },
+        {
+          "source": "Prednisolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Paramethasone": [
+          "Heteroorganic Entity",
+          "Therapeutic Glucocorticoid"
+        ],
+        "Budesonide,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Paramethasone,Prednisolone": [
+          "Heteroorganic Entity",
+          "Therapeutic Glucocorticoid"
+        ]
+      },
+      "id": "path_619"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4883,
+        "final_score": 0.4883
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Blood Cortisol Decreased",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Triamcinolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Blood Cortisol Decreased",
+          "label": "causes"
+        },
+        {
+          "source": "Blood Cortisol Decreased",
+          "target": "Triamcinolone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Triamcinolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Triamcinolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_620"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4862,
+        "final_score": 0.4862
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Bronchospasm Paradoxical",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Tiotropium",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Bronchospasm Paradoxical",
+          "label": "causes"
+        },
+        {
+          "source": "Bronchospasm Paradoxical",
+          "target": "Tiotropium",
+          "label": "is caused by"
+        },
+        {
+          "source": "Tiotropium",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Tiotropium": [
+          "Organic Molecular Entity"
+        ]
+      },
+      "id": "path_621"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4608,
+        "final_score": 0.4608
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Necrosis Ischaemic",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Betamethasone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Necrosis Ischaemic",
+          "label": "causes"
+        },
+        {
+          "source": "Necrosis Ischaemic",
+          "target": "Betamethasone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Betamethasone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Betamethasone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_622"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4529,
+        "final_score": 0.4529
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Oropharyngeal Candidiasis",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Prednisone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Oropharyngeal Candidiasis",
+          "label": "causes"
+        },
+        {
+          "source": "Oropharyngeal Candidiasis",
+          "target": "Prednisone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Prednisone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Prednisone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Oropharyngeal Candidiasis,Asthma": [
+          "Non-Neoplastic Disorder"
+        ]
+      },
+      "id": "path_623"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4499,
+        "final_score": 0.4499
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Fluprednidene Acetate",
+          "type": "Compound"
+        },
+        {
+          "id": "Hydrocortisone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Fluprednidene Acetate",
+          "label": "resembles"
+        },
+        {
+          "source": "Fluprednidene Acetate",
+          "target": "Hydrocortisone",
+          "label": "resembles"
+        },
+        {
+          "source": "Hydrocortisone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Fluprednidene Acetate": [
+          "Corticosteroid Hormone"
+        ],
+        "Budesonide,Hydrocortisone": [
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Fluprednidene Acetate,Hydrocortisone": [
+          "Corticosteroid Hormone"
+        ]
+      },
+      "id": "path_624"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4493,
+        "final_score": 0.4493
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Hyperadrenocorticism",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Prednisolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Hyperadrenocorticism",
+          "label": "causes"
+        },
+        {
+          "source": "Hyperadrenocorticism",
+          "target": "Prednisolone",
+          "label": "is caused by"
+        },
+        {
+          "source": "Prednisolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_625"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4303,
+        "final_score": 0.4303
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Loteprednol",
+          "type": "Compound"
+        },
+        {
+          "id": "Prednisolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Loteprednol",
+          "label": "resembles"
+        },
+        {
+          "source": "Loteprednol",
+          "target": "Prednisolone",
+          "label": "resembles"
+        },
+        {
+          "source": "Prednisolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Loteprednol": [
+          "Therapeutic Glucocorticoid",
+          "11Beta-Hydroxy Steroid"
+        ],
+        "Budesonide,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Loteprednol,Prednisolone": [
+          "17Alpha-Hydroxy Steroid",
+          "Therapeutic Glucocorticoid"
+        ]
+      },
+      "id": "path_626"
+    },
+    {
+      "score": {
+        "ic_mean": 0.3872,
+        "final_score": 0.3872
+      },
+      "nodes": [
+        {
+          "id": "Budesonide",
+          "type": "Compound"
+        },
+        {
+          "id": "Hydrocortamate",
+          "type": "Compound"
+        },
+        {
+          "id": "Prednisolone",
+          "type": "Compound"
+        },
+        {
+          "id": "Asthma",
+          "type": "Disease"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Budesonide",
+          "target": "Hydrocortamate",
+          "label": "resembles"
+        },
+        {
+          "source": "Hydrocortamate",
+          "target": "Prednisolone",
+          "label": "resembles"
+        },
+        {
+          "source": "Prednisolone",
+          "target": "Asthma",
+          "label": "treats"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Budesonide,Hydrocortamate": [
+          "Alpha-Hydroxy Ketone",
+          "Therapeutic Glucocorticoid"
+        ],
+        "Budesonide,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Primary Alpha-Hydroxy Ketone"
+        ],
+        "Hydrocortamate,Prednisolone": [
+          "Therapeutic Glucocorticoid",
+          "Tertiary Alpha-Hydroxy Ketone"
+        ]
+      },
+      "id": "path_627"
+    }
+  ]
+}

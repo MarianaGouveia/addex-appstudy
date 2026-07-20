@@ -1,0 +1,557 @@
+{
+  "id": "Compound::DB00714 - Gene::1813",
+   "verbalization": "The visible evidence suggests that Apomorphine may interact with Drd2 through a shared pathway involving dopamine receptor activity. Specifically, Apomorphine binds to Drd4 and Drd3, which are both involved in dopamine receptor signaling via the Gi/go pathway. This pathway is associated with dopamine neurotransmitter receptor activity, which is a key mechanism in the regulation of dopaminergic signaling. The evidence indicates that Drd2 is a participant in this pathway, suggesting a potential functional link between Apomorphine and Drd2 through the modulation of dopamine receptor activity. The scores from the different paths reflect varying levels of confidence in this relationship, with the highest scores indicating a stronger association. However, the exact nature of the interaction remains uncertain, and further experimental validation would be necessary to confirm the direct relationship between Apomorphine and Drd2.",
+  "paths": [
+    {
+      "score": {
+        "ic_mean": 0.7773,
+        "final_score": 0.7773
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd4",
+          "type": "Gene"
+        },
+        {
+          "id": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "type": "Molecular_Function"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Drd4",
+          "label": "binds"
+        },
+        {
+          "source": "Drd4",
+          "target": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "label": "participates"
+        },
+        {
+          "source": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "target": "Drd2",
+          "label": "is participated by"
+        }
+      ],
+      "id": "path_6522"
+    },
+    {
+      "score": {
+        "ic_mean": 0.7629,
+        "final_score": 0.7629
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd3",
+          "type": "Gene"
+        },
+        {
+          "id": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "type": "Molecular_Function"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Drd3",
+          "label": "binds"
+        },
+        {
+          "source": "Drd3",
+          "target": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "label": "participates"
+        },
+        {
+          "source": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
+          "target": "Drd2",
+          "label": "is participated by"
+        }
+      ],
+      "id": "path_6523"
+    },
+    {
+      "score": {
+        "ic_mean": 0.716,
+        "final_score": 0.716
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd4",
+          "type": "Gene"
+        },
+        {
+          "id": "Dopamine Neurotransmitter Receptor Activity",
+          "type": "Molecular_Function"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Drd4",
+          "label": "binds"
+        },
+        {
+          "source": "Drd4",
+          "target": "Dopamine Neurotransmitter Receptor Activity",
+          "label": "participates"
+        },
+        {
+          "source": "Dopamine Neurotransmitter Receptor Activity",
+          "target": "Drd2",
+          "label": "is participated by"
+        }
+      ],
+      "id": "path_6524"
+    },
+    {
+      "score": {
+        "ic_mean": 0.7016,
+        "final_score": 0.7016
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd3",
+          "type": "Gene"
+        },
+        {
+          "id": "Dopamine Neurotransmitter Receptor Activity",
+          "type": "Molecular_Function"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Drd3",
+          "label": "binds"
+        },
+        {
+          "source": "Drd3",
+          "target": "Dopamine Neurotransmitter Receptor Activity",
+          "label": "participates"
+        },
+        {
+          "source": "Dopamine Neurotransmitter Receptor Activity",
+          "target": "Drd2",
+          "label": "is participated by"
+        }
+      ],
+      "id": "path_6525"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6512,
+        "final_score": 0.6512
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd4",
+          "type": "Gene"
+        },
+        {
+          "id": "Remoxipride",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Drd4",
+          "label": "binds"
+        },
+        {
+          "source": "Drd4",
+          "target": "Remoxipride",
+          "label": "is bound by"
+        },
+        {
+          "source": "Remoxipride",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Remoxipride": [
+          "Agent Affecting Nervous System"
+        ]
+      },
+      "id": "path_6526"
+    },
+    {
+      "score": {
+        "ic_mean": 0.6239,
+        "final_score": 0.6239
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Htr2c",
+          "type": "Gene"
+        },
+        {
+          "id": "Minaprine",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Htr2c",
+          "label": "binds"
+        },
+        {
+          "source": "Htr2c",
+          "target": "Minaprine",
+          "label": "is bound by"
+        },
+        {
+          "source": "Minaprine",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Minaprine": [
+          "Organonitrogen Compound",
+          "Agent Affecting Nervous System"
+        ]
+      },
+      "id": "path_6527"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5939,
+        "final_score": 0.5939
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Htr2c",
+          "type": "Gene"
+        },
+        {
+          "id": "Lisuride",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Htr2c",
+          "label": "binds"
+        },
+        {
+          "source": "Htr2c",
+          "target": "Lisuride",
+          "label": "is bound by"
+        },
+        {
+          "source": "Lisuride",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Lisuride": [
+          "Organonitrogen Compound",
+          "Antiparkinsonian Agent"
+        ]
+      },
+      "id": "path_6528"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5939,
+        "final_score": 0.5939
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Htr2c",
+          "type": "Gene"
+        },
+        {
+          "id": "Cabergoline",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Htr2c",
+          "label": "binds"
+        },
+        {
+          "source": "Htr2c",
+          "target": "Cabergoline",
+          "label": "is bound by"
+        },
+        {
+          "source": "Cabergoline",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Cabergoline": [
+          "Antiparkinsonian Agent",
+          "Nitrogen Molecular Entity"
+        ]
+      },
+      "id": "path_6529"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5198,
+        "final_score": 0.5198
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Pathological Gambling",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Lisuride",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Pathological Gambling",
+          "label": "causes"
+        },
+        {
+          "source": "Pathological Gambling",
+          "target": "Lisuride",
+          "label": "is caused by"
+        },
+        {
+          "source": "Lisuride",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Lisuride": [
+          "Organonitrogen Compound",
+          "Antiparkinsonian Agent"
+        ]
+      },
+      "id": "path_6530"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5126,
+        "final_score": 0.5126
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Hypersexuality",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Lisuride",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Hypersexuality",
+          "label": "causes"
+        },
+        {
+          "source": "Hypersexuality",
+          "target": "Lisuride",
+          "label": "is caused by"
+        },
+        {
+          "source": "Lisuride",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Lisuride": [
+          "Organonitrogen Compound",
+          "Antiparkinsonian Agent"
+        ]
+      },
+      "id": "path_6531"
+    },
+    {
+      "score": {
+        "ic_mean": 0.5023,
+        "final_score": 0.5023
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Pathological Gambling",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Cabergoline",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Pathological Gambling",
+          "label": "causes"
+        },
+        {
+          "source": "Pathological Gambling",
+          "target": "Cabergoline",
+          "label": "is caused by"
+        },
+        {
+          "source": "Cabergoline",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Cabergoline": [
+          "Antiparkinsonian Agent",
+          "Nitrogen Molecular Entity"
+        ]
+      },
+      "id": "path_6532"
+    },
+    {
+      "score": {
+        "ic_mean": 0.4951,
+        "final_score": 0.4951
+      },
+      "nodes": [
+        {
+          "id": "Apomorphine",
+          "type": "Compound"
+        },
+        {
+          "id": "Hypersexuality",
+          "type": "Side Effect"
+        },
+        {
+          "id": "Cabergoline",
+          "type": "Compound"
+        },
+        {
+          "id": "Drd2",
+          "type": "Gene"
+        }
+      ],
+      "edges": [
+        {
+          "source": "Apomorphine",
+          "target": "Hypersexuality",
+          "label": "causes"
+        },
+        {
+          "source": "Hypersexuality",
+          "target": "Cabergoline",
+          "label": "is caused by"
+        },
+        {
+          "source": "Cabergoline",
+          "target": "Drd2",
+          "label": "binds"
+        }
+      ],
+      "lowest_common_ancestors": {
+        "Apomorphine,Cabergoline": [
+          "Antiparkinsonian Agent",
+          "Nitrogen Molecular Entity"
+        ]
+      },
+      "id": "path_6533"
+    }
+  ]
+}

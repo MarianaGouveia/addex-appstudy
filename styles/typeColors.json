@@ -1,0 +1,28 @@
+{
+  "nodeColors": {
+    "Activity": "#F6B8B8",
+    "Anatomy": "#8ECDF2",
+    "ATC": "#E8B7D4",
+    "Biological process": "#BFE3A8",
+    "Cellular Component": "#7FD8E0",
+    "Compound": "#F5CFA0",
+    "Disease": "#57C9C5",
+    "Drug": "#F4B49E",
+    "Effect": "#CDB4F6",
+    "Effect/Phenotype": "#F0AFC4",
+    "Entity": "#E6D1A3",
+    "Exposure": "#F7C8A0",
+    "Gene": "#AEB8FF",
+    "Gene/Protein": "#8FA8F0",
+    "Indication": "#F4D35E",
+    "Molecular function": "#F2E394",
+    "Molecule": "#FFC4A3",
+    "Pathway": "#8FE0B8",
+    "Pharmacologic Class": "#CFE09B",
+    "Phenotype": "#F2A7E0",
+    "Protein": "#9FB7F5",
+    "Side Effect": "#F29AC2",
+    "Side_effect": "#D98AE8",
+    "Symptom": "#FFB38A"
+  }
+}
