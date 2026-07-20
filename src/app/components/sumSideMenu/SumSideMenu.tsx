@@ -51,7 +51,10 @@ export default function SumSideMenu({
   );
   const isGraphModality = selectedModality === "graph";
   const isTextModality = selectedModality === "text";
-  const displayedTab = isGraphModality
+  const isSumaizeModality = selectedModality === "sumaize";
+  const displayedTab = isSumaizeModality
+    ? "verbalization"
+    : isGraphModality
     ? "paths"
     : isTextModality
       ? "verbalization"
@@ -161,7 +164,7 @@ export default function SumSideMenu({
     },
     tabsContainer: {
       display: "flex",
-      marginTop: "clamp(2.5rem, 3vw, 3.5rem)",
+      marginTop: isSumaizeModality ? 0 : "clamp(2.5rem, 3vw, 3.5rem)",
       marginBottom: "1rem",
       borderBottom: "1px solid #d1d5db",
     },
@@ -204,27 +207,29 @@ export default function SumSideMenu({
 
   return (
     <aside style={styles.aside}>
-      <div style={styles.slideControls}>
-        {!collapsed && !expanded && (
-          <button
-            style={styles.slideLeftButton}
-            onClick={() => onSlideLeft?.()}
-            aria-label="Slide left"
-            title="Slide left"
-          >
-            {"<"}
-          </button>
-        )}
+      {!isSumaizeModality && (
+        <div style={styles.slideControls}>
+          {!collapsed && !expanded && (
+            <button
+              style={styles.slideLeftButton}
+              onClick={() => onSlideLeft?.()}
+              aria-label="Slide left"
+              title="Slide left"
+            >
+              {"<"}
+            </button>
+          )}
 
-        <button
-          style={styles.slideRightButton}
-          onClick={() => onSlideRight?.()}
-          aria-label="Slide right"
-          title="Slide right"
-        >
-          {collapsed ? "<" : ">"}
-        </button>
-      </div>
+          <button
+            style={styles.slideRightButton}
+            onClick={() => onSlideRight?.()}
+            aria-label="Slide right"
+            title="Slide right"
+          >
+            {collapsed ? "<" : ">"}
+          </button>
+        </div>
+      )}
 
       {!collapsed && (
         <>
@@ -237,7 +242,7 @@ export default function SumSideMenu({
                 Verbalization
               </div>
             )}
-            {!isTextModality && (
+            {!isTextModality && !isSumaizeModality && (
               <div
                 style={styles.tab(displayedTab === "paths")}
                 onClick={() => setActiveTab("paths")}

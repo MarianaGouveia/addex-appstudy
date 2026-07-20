@@ -15,7 +15,9 @@ function SearchPageContent() {
   const colors = useTheme();
   const { theme } = useThemeContext();
   const searchParams = useSearchParams();
-  const isTextModality = searchParams.get("modality")?.toLowerCase() === "text";
+  const selectedModality = searchParams.get("modality")?.toLowerCase() ?? "hybrid";
+  const isTextModality = selectedModality === "text";
+  const isSumaizeModality = selectedModality === "sumaize";
   const hasCompletePairParams = ["persona", "dataset", "task", "source", "target"].every(
     (param) => !!searchParams.get(param)
   );
@@ -110,7 +112,8 @@ function SearchPageContent() {
           })),
         });
         setSearchState({ status: "idle" });
-        setGraphCollapsed(false);
+        setRightCollapsed(false);
+        setGraphCollapsed(isSumaizeModality);
         setShowSummaryMenu(true);
       })
       .catch((error) => {
@@ -174,6 +177,13 @@ function SearchPageContent() {
   }, [showSummaryMenu]);
 
   const handleSlideLeft = useCallback(() => {
+    if (isSumaizeModality) {
+      setShowSummaryMenu(true);
+      setRightCollapsed(false);
+      setGraphCollapsed(true);
+      return;
+    }
+
     // Left arrow sequence:
     // 1) If graph is hidden, bring it back (both visible).
     // 2) If graph is visible, toggle verbalization panel collapsed/expanded.
@@ -192,7 +202,7 @@ function SearchPageContent() {
     }
 
     setRightCollapsed((prev) => !prev);
-  }, [graphCollapsed, showSummaryMenu]);
+  }, [graphCollapsed, isSumaizeModality, showSummaryMenu]);
 
   const togglePath = useCallback(
     (pathId: string) => {
