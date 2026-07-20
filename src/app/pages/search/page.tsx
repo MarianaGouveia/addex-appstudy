@@ -325,7 +325,8 @@ function SearchPageContent() {
           />
         )}
 
-        {/* MAIN CONTENT */}
+        {/* MAIN CONTENT: sumaize renders only the full-screen verbalization menu. */}
+        {(!isSumaizeModality || !selectedPair) && (
         <main
           style={{
             flex: 1,
@@ -497,6 +498,7 @@ function SearchPageContent() {
             </div>
           )}
         </main>
+        )}
       </div>
     </div>
   );
