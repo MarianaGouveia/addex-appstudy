@@ -55,7 +55,7 @@ Notes:
 - `task` corresponds to a folder under `public/data` (e.g. `drug_repurposing` or `drug_target`).
 - `source` and `target` should match the JSON filenames; the page will look for `public/data/<task>/<source>__<target>.json`.
 - Example file used above: `public/data/drug_repurposing/Compound__DB00175__Disease__DOID_1936.json`.
-- `modality` supports `hybrid`, `graph`, `text`, and `sumaize`. The `sumaize` modality displays only the full-screen verbalization menu.
+- `modality` supports `hybrid`, `graph`, `text`, and `sumarize`. The `sumarize` modality displays only the full-screen verbalization menu.
 
 The root route renders the same study interface as `/pages/search`.
 

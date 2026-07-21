@@ -835,8 +835,18 @@ export default function GraphVisualizer({
 
   const activeTypes = useMemo(() => {
     // Keep the legend complete even when no graph elements are currently
-    // visible (notably at the start of the text reconstruction task).
+    // visible (notably at the start of the text reconstruction task). LCAs
+    // are created dynamically, so include their legend entry only when an
+    // LCA node is actually present in the displayed graph.
     const nodeTypes = manualCatalog.nodes.map((node) => node.type).filter(Boolean);
+
+    const hasVisibleLca = elements.some(
+      (element) =>
+        !("source" in element.data) &&
+        normalizeNodeType(String(element.data.type ?? "")) === "lca"
+    );
+
+    if (hasVisibleLca) nodeTypes.push("LCA");
 
     const normalizedToLabel = new Map<string, string>();
     nodeTypes.forEach((type) => {
@@ -846,7 +856,7 @@ export default function GraphVisualizer({
     });
 
     return Array.from(normalizedToLabel.values());
-  }, [manualCatalog]);
+  }, [manualCatalog, elements]);
 
   return (
     <div

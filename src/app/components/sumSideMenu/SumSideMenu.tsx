@@ -51,8 +51,8 @@ export default function SumSideMenu({
   );
   const isGraphModality = selectedModality === "graph";
   const isTextModality = selectedModality === "text";
-  const isSumaizeModality = selectedModality === "sumaize";
-  const displayedTab = isSumaizeModality
+  const isSummarizeModality = selectedModality === "sumarize";
+  const displayedTab = isSummarizeModality
     ? "verbalization"
     : isGraphModality
     ? "paths"
@@ -164,7 +164,7 @@ export default function SumSideMenu({
     },
     tabsContainer: {
       display: "flex",
-      marginTop: isSumaizeModality ? 0 : "clamp(2.5rem, 3vw, 3.5rem)",
+      marginTop: isSummarizeModality ? 0 : "clamp(2.5rem, 3vw, 3.5rem)",
       marginBottom: "1rem",
       borderBottom: "1px solid #d1d5db",
     },
@@ -207,7 +207,7 @@ export default function SumSideMenu({
 
   return (
     <aside style={styles.aside}>
-      {!isSumaizeModality && (
+      {!isSummarizeModality && (
         <div style={styles.slideControls}>
           {!collapsed && !expanded && (
             <button
@@ -242,7 +242,7 @@ export default function SumSideMenu({
                 Verbalization
               </div>
             )}
-            {!isTextModality && !isSumaizeModality && (
+            {!isTextModality && !isSummarizeModality && (
               <div
                 style={styles.tab(displayedTab === "paths")}
                 onClick={() => setActiveTab("paths")}

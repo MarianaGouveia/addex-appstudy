@@ -17,7 +17,7 @@ function SearchPageContent() {
   const searchParams = useSearchParams();
   const selectedModality = searchParams.get("modality")?.toLowerCase() ?? "hybrid";
   const isTextModality = selectedModality === "text";
-  const isSumaizeModality = selectedModality === "sumaize";
+  const isSummarizeModality = selectedModality === "sumarize";
   const hasCompletePairParams = ["persona", "dataset", "task", "source", "target"].every(
     (param) => !!searchParams.get(param)
   );
@@ -113,7 +113,7 @@ function SearchPageContent() {
         });
         setSearchState({ status: "idle" });
         setRightCollapsed(false);
-        setGraphCollapsed(isSumaizeModality);
+        setGraphCollapsed(isSummarizeModality);
         setShowSummaryMenu(true);
       })
       .catch((error) => {
@@ -177,7 +177,7 @@ function SearchPageContent() {
   }, [showSummaryMenu]);
 
   const handleSlideLeft = useCallback(() => {
-    if (isSumaizeModality) {
+    if (isSummarizeModality) {
       setShowSummaryMenu(true);
       setRightCollapsed(false);
       setGraphCollapsed(true);
@@ -202,7 +202,7 @@ function SearchPageContent() {
     }
 
     setRightCollapsed((prev) => !prev);
-  }, [graphCollapsed, isSumaizeModality, showSummaryMenu]);
+  }, [graphCollapsed, isSummarizeModality, showSummaryMenu]);
 
   const togglePath = useCallback(
     (pathId: string) => {
@@ -325,8 +325,8 @@ function SearchPageContent() {
           />
         )}
 
-        {/* MAIN CONTENT: sumaize renders only the full-screen verbalization menu. */}
-        {(!isSumaizeModality || !selectedPair) && (
+        {/* MAIN CONTENT: sumarize renders only the full-screen verbalization menu. */}
+        {(!isSummarizeModality || !selectedPair) && (
         <main
           style={{
             flex: 1,
