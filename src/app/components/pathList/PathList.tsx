@@ -167,14 +167,24 @@ export default function PathList({
   };
 
   const entitiesForLookup = useMemo(() => {
-    const byKey = new Map<string, { name: string; type: string }>();
+    const byKey = new Map<
+      string,
+      { name: string; type: string; link?: string }
+    >();
 
     for (const path of pair.paths) {
       for (const node of path.nodes) {
         const key = makeEntityKey(node.id, node.type);
         if (!key) continue;
-        if (!byKey.has(key)) {
-          byKey.set(key, { name: node.id, type: node.type });
+        const existing = byKey.get(key);
+        if (!existing) {
+          byKey.set(key, {
+            name: node.id,
+            type: node.type,
+            link: node.link,
+          });
+        } else if (!existing.link && node.link) {
+          byKey.set(key, { ...existing, link: node.link });
         }
       }
     }
@@ -185,10 +195,24 @@ export default function PathList({
   useEffect(() => {
     let cancelled = false;
 
-    if (!dataset || entitiesForLookup.length === 0) {
+    if (entitiesForLookup.length === 0) {
       setEntityLinksByKey({});
       return;
     }
+
+    const jsonLinks: EntityLinksByKey = {};
+    for (const entity of entitiesForLookup) {
+      const key = makeEntityKey(entity.name, entity.type);
+      if (key && entity.link) {
+        jsonLinks[key] = { url: entity.link };
+      }
+    }
+
+    // JSON links are bundled with the explanation and are the authoritative
+    // source. Show them immediately without waiting for an optional TSV table.
+    setEntityLinksByKey(jsonLinks);
+
+    if (!dataset) return;
 
     void loadDatasetEntityLinks(dataset)
       .then((allLinks) => {
@@ -197,7 +221,10 @@ export default function PathList({
         const requestedLinks: EntityLinksByKey = {};
         for (const entity of entitiesForLookup) {
           const key = makeEntityKey(entity.name, entity.type);
-          if (key && allLinks[key]) {
+          if (!key) continue;
+          if (jsonLinks[key]) {
+            requestedLinks[key] = jsonLinks[key];
+          } else if (allLinks[key]) {
             requestedLinks[key] = allLinks[key];
           }
         }
@@ -206,7 +233,7 @@ export default function PathList({
       .catch((error) => {
         console.error("Failed to load entity links:", error);
         if (!cancelled) {
-          setEntityLinksByKey({});
+          setEntityLinksByKey(jsonLinks);
         }
       });
 

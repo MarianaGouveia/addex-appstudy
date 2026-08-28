@@ -1,6 +1,7 @@
 export interface Node {
   id: string;
   type: string;
+  link?: string;
 }
 
 export interface Edge {
