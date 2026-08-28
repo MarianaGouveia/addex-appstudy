@@ -10,7 +10,7 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "link": "https://www.drugbank.ca/drugs/DB00175",
+          "link": "https://go.drugbank.com/drugs/DB00175",
           "type": "Compound"
         },
         {
@@ -19,10 +19,12 @@
         },
         {
           "id": "Rosuvastatin",
+          "link": "https://go.drugbank.com/drugs/DB01098",
           "type": "Compound"
         },
         {
           "id": "Atherosclerosis",
+          "link": "https://disease-ontology.org/?id=DOID:1936",
           "type": "Disease"
         }
       ],
@@ -59,6 +61,7 @@
       "nodes": [
         {
           "id": "Pravastatin",
+          "link": "https://go.drugbank.com/drugs/DB00175",
           "type": "Compound"
         },
         {
@@ -67,11 +70,13 @@
         },
         {
           "id": "Rosuvastatin",
+          "link": "https://go.drugbank.com/drugs/DB01098",
           "type": "Compound"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -107,7 +112,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Immune-mediated Necrotising Myopathy",
@@ -115,11 +121,13 @@
         },
         {
           "id": "Ezetimibe",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00973"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -155,7 +163,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Dermatomyositis",
@@ -163,11 +172,13 @@
         },
         {
           "id": "Ezetimibe",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00973"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -206,7 +217,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Myoglobinuria",
@@ -214,11 +226,13 @@
         },
         {
           "id": "Rosuvastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01098"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -254,7 +268,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Myoglobin Urine Present",
@@ -262,11 +277,13 @@
         },
         {
           "id": "Rosuvastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01098"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -302,7 +319,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Polymyalgia Rheumatica",
@@ -310,11 +328,13 @@
         },
         {
           "id": "Ezetimibe",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00973"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -353,7 +373,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Hypersensitive Syndrome",
@@ -361,11 +382,13 @@
         },
         {
           "id": "Ezetimibe",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00973"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -401,7 +424,8 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Drug Reaction With Eosinophilia And Systemic Symptoms",
@@ -409,11 +433,13 @@
         },
         {
           "id": "Ezetimibe",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00973"
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [
@@ -449,11 +475,13 @@
       "nodes": [
         {
           "id": "Pravastatin",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00175"
         },
         {
           "id": "Coronary Artery Disease",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:3393"
         },
         {
           "id": "Brachiocephalic Artery",
@@ -461,7 +489,8 @@
         },
         {
           "id": "Atherosclerosis",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:1936"
         }
       ],
       "edges": [

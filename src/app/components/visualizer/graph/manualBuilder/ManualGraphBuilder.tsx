@@ -8,6 +8,7 @@ import {
   ManualGraphRelation,
   ManualLayoutName,
 } from "./useManualGraphBuilder";
+import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
 
 const LAYOUT_OPTIONS: Array<{ value: ManualLayoutName; label: string }> = [
   { value: "breadthfirst", label: "Breadth First (default)" },
@@ -57,6 +58,30 @@ export default function ManualGraphBuilder({
   clearGraph,
   getColorForType,
 }: ManualGraphBuilderProps) {
+  const logEvent = useStudyEventLogger();
+
+  const handleAddNode = (node: ManualGraphNode, method: "click" | "keyboard") => {
+    logEvent("manual_node_added", {
+      node_id: node.id,
+      node_type: node.type,
+      method,
+    });
+    addNode(node.id);
+  };
+
+  const handleSelectRelation = (
+    relation: ManualGraphRelation,
+    method: "click" | "keyboard"
+  ) => {
+    logEvent("manual_relation_selected", {
+      relation_id: relation.id,
+      relation: relation.label,
+      relation_type: relation.type,
+      method,
+    });
+    selectRelation(relation);
+  };
+
   return (
     <aside
       aria-label="Graph construction panel"
@@ -112,7 +137,15 @@ export default function ManualGraphBuilder({
               type="button"
               role="tab"
               aria-selected={isActive}
-              onClick={() => setActiveTab(tab)}
+              onClick={() => {
+                if (tab !== activeTab) {
+                  logEvent("builder_tab_changed", {
+                    previous_tab: activeTab,
+                    new_tab: tab,
+                  });
+                  setActiveTab(tab);
+                }
+              }}
               style={{
                 padding: "0.55rem 0.4rem",
                 borderRadius: 7,
@@ -151,11 +184,11 @@ export default function ManualGraphBuilder({
                     event.dataTransfer.setData("application/x-addex-node", node.id);
                     event.dataTransfer.effectAllowed = "copy";
                   }}
-                  onClick={() => !isAdded && addNode(node.id)}
+                  onClick={() => !isAdded && handleAddNode(node, "click")}
                   onKeyDown={(event) => {
                     if (!isAdded && (event.key === "Enter" || event.key === " ")) {
                       event.preventDefault();
-                      addNode(node.id);
+                      handleAddNode(node, "keyboard");
                     }
                   }}
                   role="button"
@@ -195,6 +228,13 @@ export default function ManualGraphBuilder({
                         type="button"
                         onClick={(event) => {
                           event.stopPropagation();
+                          logEvent("manual_node_removed", {
+                            node_id: node.id,
+                            node_type: node.type,
+                            connected_edge_count: edges.filter(
+                              (edge) => edge.source === node.id || edge.target === node.id
+                            ).length,
+                          });
                           removeNode(node.id);
                         }}
                         aria-label={`Remove node ${node.id}`}
@@ -251,14 +291,16 @@ export default function ManualGraphBuilder({
                     );
                     event.dataTransfer.effectAllowed = "copy";
                   }}
-                  onClick={() => isAvailable && selectRelation(relation)}
+                  onClick={() =>
+                    isAvailable && handleSelectRelation(relation, "click")
+                  }
                   onKeyDown={(event) => {
                     if (
                       isAvailable &&
                       (event.key === "Enter" || event.key === " ")
                     ) {
                       event.preventDefault();
-                      selectRelation(relation);
+                      handleSelectRelation(relation, "keyboard");
                     }
                   }}
                   role="button"
@@ -302,7 +344,17 @@ export default function ManualGraphBuilder({
               );
               })}
               {selectedRelationId && (
-                <button type="button" onClick={cancelConnection}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logEvent("manual_connection_cancelled", {
+                      stage: pendingSourceId ? "source_selected" : "relation_selected",
+                      source_id: pendingSourceId ?? null,
+                      relation_id: selectedRelationId ?? null,
+                    });
+                    cancelConnection();
+                  }}
+                >
                   Cancel connection
                 </button>
               )}
@@ -371,7 +423,16 @@ export default function ManualGraphBuilder({
                         </div>
                         <button
                           type="button"
-                          onClick={() => removeEdge(edge.id)}
+                          onClick={() => {
+                            logEvent("manual_edge_removed", {
+                              edge_id: edge.id,
+                              source_id: edge.source,
+                              target_id: edge.target,
+                              relation: edge.label,
+                              relation_type: edge.type,
+                            });
+                            removeEdge(edge.id);
+                          }}
                           aria-label={`Remove edge from ${edge.source} to ${edge.target}`}
                           title="Remove edge"
                           style={{ padding: "0.2rem 0.4rem", borderRadius: 5 }}
@@ -442,7 +503,13 @@ export default function ManualGraphBuilder({
       <div style={{ padding: "0.65rem", borderTop: "1px solid #cbd5e1" }}>
         <button
           type="button"
-          onClick={clearGraph}
+          onClick={() => {
+            logEvent("manual_graph_cleared", {
+              node_count_before: addedNodeIds.size,
+              edge_count_before: edges.length,
+            });
+            clearGraph();
+          }}
           disabled={addedNodeIds.size === 0}
           style={{ width: "100%", padding: "0.5rem", borderRadius: 7 }}
         >

@@ -17,6 +17,7 @@ import { runClusterLayoutByType } from "@/app/hooks/clusterLayout";
 import { featureFlags } from "@/app/config/featureFlags";
 import ManualGraphBuilder from "./manualBuilder/ManualGraphBuilder";
 import { useManualGraphBuilder } from "./manualBuilder/useManualGraphBuilder";
+import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
 
 let cytoscapeSvgRegistered = false;
 async function ensureCytoscapeSvgRegistered() {
@@ -139,6 +140,7 @@ export default function GraphVisualizer({
   hoveredNodeId = null,
   onNodeHover,
 }: GraphVisualizerProps) {
+  const logEvent = useStudyEventLogger();
   const containerRef = useRef<HTMLDivElement>(null);
   const legendRef = useRef<HTMLDivElement>(null);
   const graphVisualizerRef = useRef<HTMLDivElement>(null);
@@ -206,6 +208,7 @@ export default function GraphVisualizer({
   const menuCenterRef = useRef<(() => void) | null>(null);
   const hasInitialCenteringRun = useRef(false);
   const previousManualNodeIdsRef = useRef<Set<string>>(new Set());
+  const previousManualEdgeIdsRef = useRef<Set<string>>(new Set());
   const centerAfterManualNodeAddRef = useRef(false);
   const previousManualLayoutNameRef = useRef(manualLayoutName);
   const centerAfterManualLayoutChangeRef = useRef(false);
@@ -237,16 +240,80 @@ export default function GraphVisualizer({
   }, [manualBuildMode, manualNodeIds]);
   useEffect(() => {
     if (!manualBuildMode) {
+      previousManualEdgeIdsRef.current = new Set();
+      return;
+    }
+    manualEdges.forEach((edge) => {
+      if (!previousManualEdgeIdsRef.current.has(edge.id)) {
+        logEvent("manual_edge_added", {
+          edge_id: edge.id,
+          source_id: edge.source,
+          target_id: edge.target,
+          relation: edge.label,
+          relation_type: edge.type,
+        });
+      }
+    });
+    previousManualEdgeIdsRef.current = new Set(manualEdges.map((edge) => edge.id));
+    logEvent("manual_graph_checkpoint", {
+      node_ids: Array.from(manualNodeIds),
+      edges: manualEdges.map((edge) => ({
+        source: edge.source,
+        target: edge.target,
+        relation: edge.label,
+        type: edge.type,
+      })),
+      layout: manualLayoutName,
+    });
+  }, [logEvent, manualBuildMode, manualEdges, manualLayoutName, manualNodeIds]);
+  useEffect(() => {
+    if (!manualBuildMode) {
       previousManualLayoutNameRef.current = manualLayoutName;
       centerAfterManualLayoutChangeRef.current = false;
       return;
     }
 
     if (previousManualLayoutNameRef.current !== manualLayoutName) {
+      logEvent("manual_layout_changed", {
+        previous_layout: previousManualLayoutNameRef.current,
+        new_layout: manualLayoutName,
+      });
       previousManualLayoutNameRef.current = manualLayoutName;
       centerAfterManualLayoutChangeRef.current = true;
     }
-  }, [manualBuildMode, manualLayoutName]);
+  }, [logEvent, manualBuildMode, manualLayoutName]);
+
+  const manualFinalStateRef = useRef({
+    nodeIds: [] as string[],
+    edges: [] as typeof manualEdges,
+    layout: manualLayoutName,
+  });
+  manualFinalStateRef.current = {
+    nodeIds: Array.from(manualNodeIds),
+    edges: manualEdges,
+    layout: manualLayoutName,
+  };
+  useEffect(() => {
+    if (!manualBuildMode) return;
+    const logFinalState = () => {
+      const state = manualFinalStateRef.current;
+      logEvent("manual_graph_final_state", {
+        node_ids: state.nodeIds,
+        edges: state.edges.map((edge) => ({
+          source: edge.source,
+          target: edge.target,
+          relation: edge.label,
+          type: edge.type,
+        })),
+        layout: state.layout,
+      });
+    };
+    window.addEventListener("pagehide", logFinalState);
+    return () => {
+      window.removeEventListener("pagehide", logFinalState);
+      logFinalState();
+    };
+  }, [logEvent, manualBuildMode, pair.id]);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | undefined;
@@ -279,6 +346,12 @@ export default function GraphVisualizer({
         x: (renderedPosition.x - pan.x) / zoom,
         y: (renderedPosition.y - pan.y) / zoom,
       });
+      const node = manualCatalog.nodes.find((candidate) => candidate.id === nodeId);
+      logEvent("manual_node_added", {
+        node_id: nodeId,
+        node_type: node?.type ?? "unknown",
+        method: "drag_drop",
+      });
       return;
     }
 
@@ -286,7 +359,15 @@ export default function GraphVisualizer({
       const relation = manualCatalog.relations.find(
         (candidate) => candidate.id === relationId
       );
-      if (relation) selectManualRelation(relation);
+      if (relation) {
+        logEvent("manual_relation_selected", {
+          relation_id: relation.id,
+          relation: relation.label,
+          relation_type: relation.type,
+          method: "drag_drop",
+        });
+        selectManualRelation(relation);
+      }
     }
   };
 
@@ -428,6 +509,17 @@ export default function GraphVisualizer({
     });
 
     cyRef.current = cy;
+    let nodeInspection:
+      | { id: string; type: string; startedAt: number }
+      | null = null;
+    const nodeDragStarts = new Map<
+      string,
+      { x: number; y: number; startedAt: number }
+    >();
+    let viewportStart:
+      | { type: string; zoom: number; pan: { x: number; y: number }; startedAt: number }
+      | null = null;
+    let viewportTimer: ReturnType<typeof setTimeout> | undefined;
 
     cy.on("layoutstop", () => {
       if (!manualBuildMode) positionLcasInColumn(cy, viewportScale);
@@ -455,12 +547,93 @@ export default function GraphVisualizer({
 
     cy.on("mouseover", "node", (event) => {
       const id = event.target.id() as string;
+      nodeInspection = {
+        id,
+        type: String(event.target.data("type") ?? "unknown"),
+        startedAt: performance.now(),
+      };
       onNodeHoverRef.current?.(id);
     });
 
     cy.on("mouseout", "node", () => {
+      if (nodeInspection) {
+        const duration = Math.round(performance.now() - nodeInspection.startedAt);
+        if (duration >= 750) {
+          logEvent("node_inspected", {
+            node_id: nodeInspection.id,
+            node_type: nodeInspection.type,
+            hover_duration_ms: duration,
+            containing_path_ids: pair.paths
+              .filter((path) =>
+                path.nodes.some((node) => node.id === nodeInspection?.id)
+              )
+              .map((path) => path.id),
+          });
+        }
+        nodeInspection = null;
+      }
       onNodeHoverRef.current?.(null);
     });
+
+    cy.on("grab", "node", (event) => {
+      const position = event.target.position();
+      nodeDragStarts.set(event.target.id(), {
+        x: position.x,
+        y: position.y,
+        startedAt: performance.now(),
+      });
+    });
+
+    cy.on("dragfree", "node", (event) => {
+      const nodeId = event.target.id() as string;
+      const position = event.target.position();
+      const start = nodeDragStarts.get(nodeId);
+      nodeDragStarts.delete(nodeId);
+      const eventName = manualBuildMode ? "manual_node_moved" : "node_moved";
+      logEvent(eventName, {
+        node_id: nodeId,
+        node_type: String(event.target.data("type") ?? "unknown"),
+        from_position: start ? { x: start.x, y: start.y } : null,
+        to_position: { x: position.x, y: position.y },
+        distance: start
+          ? Math.round(Math.hypot(position.x - start.x, position.y - start.y))
+          : null,
+        duration_ms: start
+          ? Math.round(performance.now() - start.startedAt)
+          : null,
+      });
+      if (manualBuildMode) {
+        updateManualNodePosition(nodeId, { x: position.x, y: position.y });
+      }
+    });
+
+    cy.on("pan zoom", (event) => {
+      if (!event.originalEvent) return;
+      if (!viewportStart) {
+        viewportStart = {
+          type: event.type,
+          zoom: cy.zoom(),
+          pan: { ...cy.pan() },
+          startedAt: performance.now(),
+        };
+      }
+      clearTimeout(viewportTimer);
+      viewportTimer = setTimeout(() => {
+        if (!viewportStart) return;
+        const finalPan = cy.pan();
+        logEvent("graph_viewport_changed", {
+          interaction: viewportStart.type === "zoom" ? "canvas_zoom" : "canvas_pan",
+          previous_zoom: viewportStart.zoom,
+          new_zoom: cy.zoom(),
+          previous_pan: viewportStart.pan,
+          new_pan: { x: finalPan.x, y: finalPan.y },
+          duration_ms: Math.round(performance.now() - viewportStart.startedAt),
+        });
+        viewportStart = null;
+      }, 350);
+    });
+
+    cy.on("destroy", () => clearTimeout(viewportTimer));
 
     cy.on("tap", "node", (event) => {
       if (!manualBuildMode) return;
@@ -469,11 +642,6 @@ export default function GraphVisualizer({
 
     if (manualBuildMode) {
       cy.nodes().grabify();
-      cy.on("dragfree", "node", (event) => {
-        const nodeId = event.target.id() as string;
-        const position = event.target.position();
-        updateManualNodePosition(nodeId, { x: position.x, y: position.y });
-      });
 
       if (manualLayoutName === "cluster") {
         runClusterLayoutByType(cy, false);
@@ -594,6 +762,8 @@ export default function GraphVisualizer({
     viewportScale,
     manualBuildMode,
     manualLayoutName,
+    logEvent,
+    pair.paths,
     updateManualNodePosition,
   ]);
 
@@ -887,6 +1057,8 @@ export default function GraphVisualizer({
           resetColors();
           initGraph();
         }}
+        visiblePathIds={Array.from(visiblePaths)}
+        visibleLcaIds={Array.from(visibleLCAs)}
       />
 
       {/* Graph + Legend container */}

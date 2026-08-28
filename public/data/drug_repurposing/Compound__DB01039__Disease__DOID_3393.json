@@ -10,6 +10,7 @@
       "nodes": [
         {
           "id": "Fenofibrate",
+          "link": "https://go.drugbank.com/drugs/DB01039",
           "type": "Compound"
         },
         {
@@ -18,10 +19,12 @@
         },
         {
           "id": "Gemfibrozil",
+          "link": "https://go.drugbank.com/drugs/DB01241",
           "type": "Compound"
         },
         {
           "id": "Coronary Artery Disease",
+          "link": "https://disease-ontology.org/?id=DOID:3393",
           "type": "Disease"
         }
       ],
@@ -58,6 +61,7 @@
       "nodes": [
         {
           "id": "Fenofibrate",
+          "link": "https://go.drugbank.com/drugs/DB01039",
           "type": "Compound"
         },
         {
@@ -66,10 +70,12 @@
         },
         {
           "id": "Gemfibrozil",
+          "link": "https://go.drugbank.com/drugs/DB01241",
           "type": "Compound"
         },
         {
           "id": "Coronary Artery Disease",
+          "link": "https://disease-ontology.org/?id=DOID:3393",
           "type": "Disease"
         }
       ],

@@ -8,6 +8,7 @@ import { ZoomIn, ZoomOut, RefreshCcw, Settings, Grid, Target, Download, RotateCc
 import EditGraphMenu from "../Settings/GraphSettings";
 import { Pair } from "@/app/hooks/types";
 import { featureFlags } from "@/app/config/featureFlags";
+import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
 
 export interface GraphMenuProps {
   cy: Core | null;
@@ -18,6 +19,8 @@ export interface GraphMenuProps {
   paletteOverride: ThemeName | null;
   setPaletteOverride: (next: ThemeName | null) => void;
   resetColors: () => void;
+  visiblePathIds: string[];
+  visibleLcaIds: string[];
 }
 
 const NOOP = () => {};
@@ -29,8 +32,11 @@ const GraphMenu = forwardRef<() => void, GraphMenuProps>(({
   pair,
   onExport,
   resetColors = NOOP,
+  visiblePathIds,
+  visibleLcaIds,
 }, ref) => {
   const colors = useTheme();
+  const logEvent = useStudyEventLogger();
 
   const [editOpen, setEditOpen] = useState(false);
   const [showGrid, setShowGrid] = useState(false);
@@ -79,36 +85,73 @@ const GraphMenu = forwardRef<() => void, GraphMenuProps>(({
   // --------------------- CENTER FUNCTION ---------------------
   const handleCenter = () => {
     if (cy) {
+      const previousZoom = cy.zoom();
+      const currentPan = cy.pan();
+      const previousPan = { x: currentPan.x, y: currentPan.y };
       cy.fit();
       cy.center();
+      const centeredPan = cy.pan();
+      logEvent("graph_centered", {
+        previous_zoom: previousZoom,
+        new_zoom: cy.zoom(),
+        previous_pan: previousPan,
+        new_pan: { x: centeredPan.x, y: centeredPan.y },
+        trigger: "center_button",
+      });
     }
   };
 
   useImperativeHandle(ref, () => handleCenter);
 
   const handleReload = () => {
+    const reloadPan = cy?.pan();
+    logEvent("graph_reloaded", {
+      visible_path_ids: visiblePathIds,
+      visible_lca_ids: visibleLcaIds,
+      zoom_before: cy?.zoom() ?? null,
+      pan_before: reloadPan ? { x: reloadPan.x, y: reloadPan.y } : null,
+      node_count_before: cy?.nodes().length ?? 0,
+      edge_count_before: cy?.edges().length ?? 0,
+    });
     onReload();
   };
 
   const handleExportClick = () => {
     if (!pair) return alert("No pair selected for export!");
+    logEvent("graph_exported", { status: "requested" });
     onExport();
   };
 
   const handleZoomIn = () => {
-    if (cy)
+    if (cy) {
+      const previousZoom = cy.zoom();
       cy.zoom({
-        level: cy.zoom() * 1.2,
+        level: previousZoom * 1.2,
         renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 }
       });
+      logEvent("graph_viewport_changed", {
+        interaction: "zoom_button",
+        direction: "in",
+        previous_zoom: previousZoom,
+        new_zoom: cy.zoom(),
+      });
+    }
   };
 
   const handleZoomOut = () => {
-    if (cy)
+    if (cy) {
+      const previousZoom = cy.zoom();
       cy.zoom({
-        level: cy.zoom() * 0.8,
+        level: previousZoom * 0.8,
         renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 }
       });
+      logEvent("graph_viewport_changed", {
+        interaction: "zoom_button",
+        direction: "out",
+        previous_zoom: previousZoom,
+        new_zoom: cy.zoom(),
+      });
+    }
   };
 
   const handleGridToggle = () => {
@@ -116,6 +159,7 @@ const GraphMenu = forwardRef<() => void, GraphMenuProps>(({
 
     const newShowGrid = !showGrid;
     setShowGrid(newShowGrid);
+    logEvent("grid_toggled", { enabled: newShowGrid });
 
     const gridSize = 20;
 

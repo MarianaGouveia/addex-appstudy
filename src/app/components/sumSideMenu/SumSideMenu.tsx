@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Copy, Check, Download } from "lucide-react";
 import { Pair } from "@/app/hooks/types";
 import PathList from "../pathList/PathList";
 import { featureFlags } from "@/app/config/featureFlags";
+import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
 
 interface SumSideMenuProps {
   collapsed: boolean;
@@ -43,6 +44,8 @@ export default function SumSideMenu({
   const [globalExplanation, setGlobalExplanation] = useState("");
   const [verbalizationFontSize, setVerbalizationFontSize] = useState(16);
   const [copied, setCopied] = useState(false);
+  const readingThresholdsRef = useRef(new Set<number>());
+  const logEvent = useStudyEventLogger();
   const searchParams = useSearchParams();
   const selectedDataset = useMemo(() => searchParams.get("dataset") ?? "", [searchParams]);
   const selectedModality = useMemo(
@@ -62,11 +65,34 @@ export default function SumSideMenu({
 
   const MIN_FONT = 12;
   const MAX_FONT = 30;
-  const decreaseFont = () => setVerbalizationFontSize((s) => Math.max(MIN_FONT, s - 1));
-  const increaseFont = () => setVerbalizationFontSize((s) => Math.min(MAX_FONT, s + 1));
+  const changeFontSize = (direction: "increase" | "decrease") => {
+    const next = Math.min(
+      MAX_FONT,
+      Math.max(MIN_FONT, verbalizationFontSize + (direction === "increase" ? 1 : -1))
+    );
+    if (next === verbalizationFontSize) return;
+    logEvent("font_size_changed", {
+      previous_size: verbalizationFontSize,
+      new_size: next,
+      direction,
+    });
+    setVerbalizationFontSize(next);
+  };
+  const decreaseFont = () => changeFontSize("decrease");
+  const increaseFont = () => changeFontSize("increase");
+
+  const changeContentTab = (next: "verbalization" | "paths") => {
+    if (next === displayedTab) return;
+    logEvent("content_tab_changed", {
+      previous_tab: displayedTab,
+      new_tab: next,
+    });
+    setActiveTab(next);
+  };
 
   useEffect(() => {
     setGlobalExplanation(pair?.verbalization?.trim() ?? "");
+    readingThresholdsRef.current.clear();
   }, [pair]);
 
   const copyVerbalization = async () => {
@@ -74,8 +100,10 @@ export default function SumSideMenu({
       await navigator.clipboard.writeText(globalExplanation);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
+      logEvent("summary_copied", { status: "success" });
     } catch (err) {
       console.error("Failed to copy verbalization:", err);
+      logEvent("summary_copied", { status: "failed" });
     }
   };
 
@@ -93,6 +121,7 @@ export default function SumSideMenu({
     link.download = `${safeName}.txt`;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 5000);
+    logEvent("summary_downloaded", { status: "success" });
   };
 
   const styles = {
@@ -237,7 +266,7 @@ export default function SumSideMenu({
             {!isGraphModality && (
               <div
                 style={styles.tab(displayedTab === "verbalization")}
-                onClick={() => setActiveTab("verbalization")}
+                onClick={() => changeContentTab("verbalization")}
               >
                 Verbalization
               </div>
@@ -245,7 +274,7 @@ export default function SumSideMenu({
             {!isTextModality && !isSummarizeModality && (
               <div
                 style={styles.tab(displayedTab === "paths")}
-                onClick={() => setActiveTab("paths")}
+                onClick={() => changeContentTab("paths")}
               >
                 Path Selection
               </div>
@@ -376,7 +405,27 @@ export default function SumSideMenu({
                         </>
                       )}
                     </div>
-                    <div style={{ flex: 1, minHeight: 0, overflowY: "auto" }}>
+                    <div
+                      style={{ flex: 1, minHeight: 0, overflowY: "auto" }}
+                      onScroll={(event) => {
+                        const element = event.currentTarget;
+                        const scrollable = element.scrollHeight - element.clientHeight;
+                        const percent = scrollable <= 0
+                          ? 100
+                          : Math.round((element.scrollTop / scrollable) * 100);
+                        [25, 50, 75, 100].forEach((threshold) => {
+                          if (
+                            percent >= threshold &&
+                            !readingThresholdsRef.current.has(threshold)
+                          ) {
+                            readingThresholdsRef.current.add(threshold);
+                            logEvent("reading_progress", {
+                              maximum_scroll_percent: threshold,
+                            });
+                          }
+                        });
+                      }}
+                    >
                       <p
                         style={{
                           textAlign: "justify",
@@ -419,7 +468,14 @@ export default function SumSideMenu({
                   >
                     <button
                       type="button"
-                      onClick={() => setOtherPathsOpen((v) => !v)}
+                      onClick={() => {
+                        const next = !otherPathsOpen;
+                        logEvent("other_paths_toggled", {
+                          state: next ? "opened" : "closed",
+                          additional_path_count: hiddenCount,
+                        });
+                        setOtherPathsOpen(next);
+                      }}
                       aria-expanded={otherPathsOpen}
                       style={{
                         width: "100%",

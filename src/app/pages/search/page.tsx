@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState, useEffect, useCallback } from "react";
+import React, { Suspense, useState, useEffect, useCallback, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import GraphVisualizer from "../../components/visualizer/graph/GraphVisualizer";
 import { ExplanationSearchState, Pair } from "../../hooks/types";
@@ -10,11 +10,22 @@ import {
   publicAssetPath,
   toPublicDataSegment,
 } from "../../utils/publicAssetPath";
+import { resolveStudyIdentity } from "../../utils/studyIdentity";
+import {
+  StudyTelemetryProvider,
+  useStudyTelemetry,
+} from "../../hooks/useStudyTelemetry";
 
 function SearchPageContent() {
   const colors = useTheme();
   const { theme } = useThemeContext();
   const searchParams = useSearchParams();
+  // Stringify once so navigation to another study link updates identity and data.
+  const searchParamsStr = searchParams.toString();
+  const studyIdentity = useMemo(
+    () => resolveStudyIdentity(new URLSearchParams(searchParamsStr)),
+    [searchParamsStr]
+  );
   const selectedModality = searchParams.get("modality")?.toLowerCase() ?? "hybrid";
   const isTextModality = selectedModality === "text";
   const isSummarizeModality = selectedModality === "sumarize";
@@ -51,13 +62,23 @@ function SearchPageContent() {
 
   const [rightCollapsed, setRightCollapsed] = useState(false);
   const [graphCollapsed, setGraphCollapsed] = useState(false);
+  const panelLayout = graphCollapsed
+    ? "explanation_only"
+    : rightCollapsed
+      ? "graph_with_collapsed_explanation"
+      : "both";
+  const telemetryFinalState = useMemo(
+    () => ({
+      final_panel_layout: panelLayout,
+      final_visible_path_ids: Array.from(visiblePaths),
+      final_visible_lca_ids: Array.from(visibleLCAs),
+    }),
+    [panelLayout, visibleLCAs, visiblePaths]
+  );
+  const { logEvent } = useStudyTelemetry(studyIdentity, telemetryFinalState);
   const isDirectPairLoading =
     hasCompletePairParams &&
     (searchState.status === "idle" || searchState.status === "checking");
-
-  // Stringify the query so direct navigation to another complete pair link
-  // reliably reloads the saved explanation.
-  const searchParamsStr = searchParams.toString();
 
   useEffect(() => {
     const persona = searchParams.get("persona");
@@ -69,6 +90,7 @@ function SearchPageContent() {
     if (!persona || !dataset || !task || !source || !target) return;
 
     let cancelled = false;
+    const loadStartedAt = Date.now();
     setSelectedPair(null);
     setSearchState({
       status: "checking",
@@ -99,10 +121,14 @@ function SearchPageContent() {
             status: "missing",
             message: "No saved public-data explanation was found for this pair.",
           });
+          logEvent("explanation_load_completed", {
+            status: "missing",
+            duration_ms: Date.now() - loadStartedAt,
+          });
           return;
         }
 
-        setSelectedPair({
+        const loadedPair = {
           ...savedPair,
           source,
           target,
@@ -110,11 +136,40 @@ function SearchPageContent() {
             ...path,
             id: path.id ?? `path_${index + 1}`,
           })),
-        });
+        };
+        setSelectedPair(loadedPair);
         setSearchState({ status: "idle" });
         setRightCollapsed(false);
         setGraphCollapsed(isSummarizeModality);
         setShowSummaryMenu(true);
+        const uniqueNodeIds = new Set(
+          loadedPair.paths.flatMap((path) => path.nodes.map((node) => node.id))
+        );
+        const uniqueLcaIds = new Set(
+          loadedPair.paths.flatMap((path) =>
+            Object.values(path.lowest_common_ancestors ?? {}).flat()
+          )
+        );
+        logEvent("explanation_load_completed", {
+          status: "success",
+          duration_ms: Date.now() - loadStartedAt,
+          path_count: loadedPair.paths.length,
+          initially_visible_path_count: isTextModality
+            ? 0
+            : Math.min(3, loadedPair.paths.length),
+          initially_visible_lca_count: uniqueLcaIds.size,
+          initial_panel_layout: isSummarizeModality
+            ? "explanation_only"
+            : "both",
+          initial_content_tab:
+            selectedModality === "graph" ? "paths" : "verbalization",
+          node_count: uniqueNodeIds.size,
+          edge_count: loadedPair.paths.reduce(
+            (total, path) => total + path.edges.length,
+            0
+          ),
+          lca_count: uniqueLcaIds.size,
+        });
       })
       .catch((error) => {
         if (cancelled) return;
@@ -122,6 +177,10 @@ function SearchPageContent() {
         setSearchState({
           status: "failed",
           message: "Failed to load the saved public-data explanation.",
+        });
+        logEvent("explanation_load_completed", {
+          status: "failed",
+          duration_ms: Date.now() - loadStartedAt,
         });
       });
 
@@ -171,13 +230,27 @@ function SearchPageContent() {
 
   const handleSlideRight = useCallback(() => {
     // Right arrow -> verbalization-only.
+    if (panelLayout !== "explanation_only") {
+      logEvent("panel_layout_changed", {
+        previous_layout: panelLayout,
+        new_layout: "explanation_only",
+        trigger: "panel_arrow",
+      });
+    }
     if (!showSummaryMenu) setShowSummaryMenu(true);
     setRightCollapsed(false);
     setGraphCollapsed(true);
-  }, [showSummaryMenu]);
+  }, [logEvent, panelLayout, showSummaryMenu]);
 
   const handleSlideLeft = useCallback(() => {
     if (isSummarizeModality) {
+      if (panelLayout !== "explanation_only") {
+        logEvent("panel_layout_changed", {
+          previous_layout: panelLayout,
+          new_layout: "explanation_only",
+          trigger: "panel_arrow",
+        });
+      }
       setShowSummaryMenu(true);
       setRightCollapsed(false);
       setGraphCollapsed(true);
@@ -189,6 +262,11 @@ function SearchPageContent() {
     // 2) If graph is visible, toggle verbalization panel collapsed/expanded.
     // Verbalization is never fully hidden by this control.
     if (graphCollapsed) {
+      logEvent("panel_layout_changed", {
+        previous_layout: panelLayout,
+        new_layout: "both",
+        trigger: "panel_arrow",
+      });
       setGraphCollapsed(false);
       if (!showSummaryMenu) setShowSummaryMenu(true);
       setRightCollapsed(false);
@@ -196,19 +274,67 @@ function SearchPageContent() {
     }
 
     if (!showSummaryMenu) {
+      logEvent("panel_layout_changed", {
+        previous_layout: panelLayout,
+        new_layout: "both",
+        trigger: "panel_arrow",
+      });
       setShowSummaryMenu(true);
       setRightCollapsed(false);
       return;
     }
 
+    const newLayout = rightCollapsed ? "both" : "graph_with_collapsed_explanation";
+    logEvent("panel_layout_changed", {
+      previous_layout: panelLayout,
+      new_layout: newLayout,
+      trigger: "panel_arrow",
+    });
     setRightCollapsed((prev) => !prev);
-  }, [graphCollapsed, isSummarizeModality, showSummaryMenu]);
+  }, [
+    graphCollapsed,
+    isSummarizeModality,
+    logEvent,
+    panelLayout,
+    rightCollapsed,
+    showSummaryMenu,
+  ]);
 
   const togglePath = useCallback(
     (pathId: string) => {
+      const path = selectedPair?.paths.find((candidate) => candidate.id === pathId);
+      const willBeVisible = !visiblePaths.has(pathId);
+      const autoShownLcas = new Set<string>();
+      if (willBeVisible && path?.lowest_common_ancestors) {
+        Object.values(path.lowest_common_ancestors).forEach((lcaList) => {
+          const entries = Array.isArray(lcaList) ? lcaList : [lcaList];
+          entries.forEach((lca) => {
+            if (lca && !visibleLCAs.has(lca)) autoShownLcas.add(lca);
+          });
+        });
+      }
+
+      autoShownLcas.forEach((lcaId) => {
+        logEvent("lca_visibility_changed", {
+          lca_id: lcaId,
+          visibility: "shown",
+          cause: "path_added_automatically",
+          triggering_path_id: pathId,
+        });
+      });
+
+      logEvent("path_visibility_changed", {
+        path_id: pathId,
+        path_rank: path ? selectedPair!.paths.indexOf(path) + 1 : null,
+        visibility: willBeVisible ? "shown" : "hidden",
+        visible_path_count_after: visiblePaths.size + (willBeVisible ? 1 : -1),
+        auto_shown_lca_ids: Array.from(autoShownLcas),
+        agentic_score: path?.score?.agentic_score ?? null,
+        final_score: path?.score?.final_score ?? null,
+      });
+
       setVisiblePaths((prev) => {
         const copy = new Set(prev);
-        const willBeVisible = !copy.has(pathId);
         if (willBeVisible) copy.add(pathId);
         else copy.delete(pathId);
 
@@ -240,17 +366,27 @@ function SearchPageContent() {
         return copy;
       });
     },
-    [selectedPair]
+    [logEvent, selectedPair, visibleLCAs, visiblePaths]
   );
 
-  const toggleLCA = useCallback((lcaName: string) => {
-    setVisibleLCAs((prev) => {
-      const copy = new Set(prev);
-      if (copy.has(lcaName)) copy.delete(lcaName);
-      else copy.add(lcaName);
-      return copy;
-    });
-  }, []);
+  const toggleLCA = useCallback(
+    (lcaName: string) => {
+      const willBeVisible = !visibleLCAs.has(lcaName);
+      logEvent("lca_visibility_changed", {
+        lca_id: lcaName,
+        visibility: willBeVisible ? "shown" : "hidden",
+        visible_lca_count_after: visibleLCAs.size + (willBeVisible ? 1 : -1),
+        cause: "participant",
+      });
+      setVisibleLCAs((prev) => {
+        const copy = new Set(prev);
+        if (willBeVisible) copy.add(lcaName);
+        else copy.delete(lcaName);
+        return copy;
+      });
+    },
+    [logEvent, visibleLCAs]
+  );
 
   const handlePathHover = useCallback((pathId: string | null) => {
     setHoveredPathId(pathId);
@@ -280,6 +416,7 @@ function SearchPageContent() {
   const RIGHTMENU_COLLAPSED_WIDTH = "clamp(52px, 4vw, 76px)";
 
   return (
+    <StudyTelemetryProvider logEvent={logEvent}>
     <div
       className="search-explanation-page"
       style={{
@@ -501,6 +638,7 @@ function SearchPageContent() {
         )}
       </div>
     </div>
+    </StudyTelemetryProvider>
   );
 }
 

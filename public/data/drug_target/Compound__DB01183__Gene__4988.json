@@ -10,6 +10,7 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
@@ -18,11 +19,13 @@
         },
         {
           "id": "Methylnaltrexone",
+          "link": "https://go.drugbank.com/drugs/DB06800",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [
@@ -58,19 +61,23 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
           "id": "Levallorphan",
+          "link": "https://go.drugbank.com/drugs/DB00504",
           "type": "Compound"
         },
         {
           "id": "Dezocine",
+          "link": "https://go.drugbank.com/drugs/DB01209",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [
@@ -114,19 +121,23 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
           "id": "Levallorphan",
+          "link": "https://go.drugbank.com/drugs/DB00504",
           "type": "Compound"
         },
         {
           "id": "Pentazocine",
+          "link": "https://go.drugbank.com/drugs/DB00652",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [
@@ -170,19 +181,23 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
           "id": "Levallorphan",
+          "link": "https://go.drugbank.com/drugs/DB00504",
           "type": "Compound"
         },
         {
           "id": "Butorphanol",
+          "link": "https://go.drugbank.com/drugs/DB00611",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [
@@ -226,19 +241,23 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
           "id": "Levallorphan",
+          "link": "https://go.drugbank.com/drugs/DB00504",
           "type": "Compound"
         },
         {
           "id": "Levorphanol",
+          "link": "https://go.drugbank.com/drugs/DB00854",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [
@@ -282,6 +301,7 @@
       "nodes": [
         {
           "id": "Naloxone",
+          "link": "https://go.drugbank.com/drugs/DB01183",
           "type": "Compound"
         },
         {
@@ -290,11 +310,13 @@
         },
         {
           "id": "Pentazocine",
+          "link": "https://go.drugbank.com/drugs/DB00652",
           "type": "Compound"
         },
         {
           "id": "Oprm1",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/4988"
         }
       ],
       "edges": [

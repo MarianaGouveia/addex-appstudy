@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Pair, Path } from "@/app/hooks/types";
 import { featureFlags } from "@/app/config/featureFlags";
 import {
   publicAssetPath,
   toPublicDataSegment,
 } from "@/app/utils/publicAssetPath";
+import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
 
 type LinkCategory = "compound" | "disease" | "gene";
 type EntityLinkInfo = {
@@ -133,6 +134,37 @@ export default function PathList({
 }: PathListProps) {
   const linkColor = "#000000";
   const [entityLinksByKey, setEntityLinksByKey] = useState<EntityLinksByKey>({});
+  const logEvent = useStudyEventLogger();
+  const pathHoverRef = useRef<{ id: string; startedAt: number } | null>(null);
+  const lcaHoverRef = useRef<{ id: string; startedAt: number } | null>(null);
+
+  const finishPathInspection = () => {
+    const inspection = pathHoverRef.current;
+    pathHoverRef.current = null;
+    if (!inspection) return;
+    const duration = Math.round(performance.now() - inspection.startedAt);
+    if (duration >= 750) {
+      logEvent("path_inspected", {
+        path_id: inspection.id,
+        hover_duration_ms: duration,
+        visible: visiblePaths.has(inspection.id),
+      });
+    }
+  };
+
+  const finishLcaInspection = () => {
+    const inspection = lcaHoverRef.current;
+    lcaHoverRef.current = null;
+    if (!inspection) return;
+    const duration = Math.round(performance.now() - inspection.startedAt);
+    if (duration >= 750) {
+      logEvent("lca_inspected", {
+        lca_id: inspection.id,
+        hover_duration_ms: duration,
+        visible: visibleLCAs.has(inspection.id),
+      });
+    }
+  };
 
   const entitiesForLookup = useMemo(() => {
     const byKey = new Map<string, { name: string; type: string }>();
@@ -324,6 +356,21 @@ export default function PathList({
           href={linkInfo.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            let destinationDomain = "external";
+            try {
+              destinationDomain = new URL(linkInfo.url).hostname;
+            } catch {
+              // Keep a non-identifying fallback instead of logging the raw URL.
+            }
+            logEvent("external_reference_clicked", {
+              entity_id: name,
+              entity_type: nodeType ?? "unknown",
+              external_id: linkInfo.externalId ?? null,
+              destination_provider: linkInfo.source ?? destinationDomain,
+              destination_domain: destinationDomain,
+            });
+          }}
           style={{
             color: linkColor,
             textDecoration: "underline",
@@ -429,9 +476,18 @@ export default function PathList({
                     : null),
                 }}
                 onMouseEnter={() => {
-                  if (isVisible) onPathHover(path.id);
+                  if (isVisible) {
+                    pathHoverRef.current = {
+                      id: path.id,
+                      startedAt: performance.now(),
+                    };
+                    onPathHover(path.id);
+                  }
                 }}
-                onMouseLeave={() => onPathHover(null)}
+                onMouseLeave={() => {
+                  finishPathInspection();
+                  onPathHover(null);
+                }}
               >
                 <label
                   style={{
@@ -540,9 +596,18 @@ export default function PathList({
                   key={lcaName}
                   style={cardStyle}
                   onMouseEnter={() => {
-                    if (isVisible) onLcaHover(lcaName);
+                    if (isVisible) {
+                      lcaHoverRef.current = {
+                        id: lcaName,
+                        startedAt: performance.now(),
+                      };
+                      onLcaHover(lcaName);
+                    }
                   }}
-                  onMouseLeave={() => onLcaHover(null)}
+                  onMouseLeave={() => {
+                    finishLcaInspection();
+                    onLcaHover(null);
+                  }}
                 >
                   <label
                     style={{

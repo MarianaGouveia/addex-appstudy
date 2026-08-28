@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB00714 - Gene::1813",
-   "verbalization": "The visible evidence suggests that Apomorphine may interact with Drd2 through a shared pathway involving dopamine receptor activity. Specifically, Apomorphine binds to Drd4 and Drd3, which are both involved in dopamine receptor signaling via the Gi/go pathway. This pathway is associated with dopamine neurotransmitter receptor activity, which is a key mechanism in the regulation of dopaminergic signaling. The evidence indicates that Drd2 is a participant in this pathway, suggesting a potential functional link between Apomorphine and Drd2 through the modulation of dopamine receptor activity. The scores from the different paths reflect varying levels of confidence in this relationship, with the highest scores indicating a stronger association. However, the exact nature of the interaction remains uncertain, and further experimental validation would be necessary to confirm the direct relationship between Apomorphine and Drd2.",
+  "verbalization": "The visible evidence suggests that Apomorphine may interact with Drd2 through a shared pathway involving dopamine receptor activity. Specifically, Apomorphine binds to Drd4 and Drd3, which are both involved in dopamine receptor signaling via the Gi/go pathway. This pathway is associated with dopamine neurotransmitter receptor activity, which is a key mechanism in the regulation of dopaminergic signaling. The evidence indicates that Drd2 is a participant in this pathway, suggesting a potential functional link between Apomorphine and Drd2 through the modulation of dopamine receptor activity. The scores from the different paths reflect varying levels of confidence in this relationship, with the highest scores indicating a stronger association. However, the exact nature of the interaction remains uncertain, and further experimental validation would be necessary to confirm the direct relationship between Apomorphine and Drd2.",
   "paths": [
     {
       "score": {
@@ -10,11 +10,13 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Drd4",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1815"
         },
         {
           "id": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
@@ -22,7 +24,8 @@
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -52,11 +55,13 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Drd3",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1814"
         },
         {
           "id": "Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go",
@@ -64,7 +69,8 @@
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -94,11 +100,13 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Drd4",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1815"
         },
         {
           "id": "Dopamine Neurotransmitter Receptor Activity",
@@ -106,7 +114,8 @@
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -136,11 +145,13 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Drd3",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1814"
         },
         {
           "id": "Dopamine Neurotransmitter Receptor Activity",
@@ -148,7 +159,8 @@
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -178,19 +190,23 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Drd4",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1815"
         },
         {
           "id": "Remoxipride",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00409"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -225,19 +241,23 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Htr2c",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/3358"
         },
         {
           "id": "Minaprine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00805"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -273,19 +293,23 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Htr2c",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/3358"
         },
         {
           "id": "Lisuride",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00589"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -321,19 +345,23 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Htr2c",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/3358"
         },
         {
           "id": "Cabergoline",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00248"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -369,7 +397,8 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Pathological Gambling",
@@ -377,11 +406,13 @@
         },
         {
           "id": "Lisuride",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00589"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -417,7 +448,8 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Hypersexuality",
@@ -425,11 +457,13 @@
         },
         {
           "id": "Lisuride",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00589"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -465,7 +499,8 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Pathological Gambling",
@@ -473,11 +508,13 @@
         },
         {
           "id": "Cabergoline",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00248"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [
@@ -513,7 +550,8 @@
       "nodes": [
         {
           "id": "Apomorphine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00714"
         },
         {
           "id": "Hypersexuality",
@@ -521,11 +559,13 @@
         },
         {
           "id": "Cabergoline",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00248"
         },
         {
           "id": "Drd2",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1813"
         }
       ],
       "edges": [

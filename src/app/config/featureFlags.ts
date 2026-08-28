@@ -10,6 +10,10 @@ export const featureFlags = {
   exportContent: false,
   showIC: false,
   graphSetting: false,
+  /** Send pseudonymous study interaction events to the configured log store. */
+  logs: true,
+  /** Read the participant's FormN code from the study link. */
+  forms: true,
 } as const;
 
 export type FeatureName = keyof typeof featureFlags;

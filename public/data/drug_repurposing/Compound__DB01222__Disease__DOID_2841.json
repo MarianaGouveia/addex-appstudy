@@ -10,7 +10,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Oropharyngeal Candidiasis",
@@ -18,11 +19,13 @@
         },
         {
           "id": "Beclomethasone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00394"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -61,7 +64,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Hyperadrenocorticism",
@@ -69,11 +73,13 @@
         },
         {
           "id": "Beclomethasone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00394"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -109,19 +115,23 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Fluprednidene Acetate",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB14634"
         },
         {
           "id": "Beclomethasone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00394"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -163,7 +173,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Corticosteroid Hormone Receptor Agonists",
@@ -171,11 +182,13 @@
         },
         {
           "id": "Hydrocortisone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00741"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -210,7 +223,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Corticosteroid Hormone Receptor Agonists",
@@ -218,11 +232,13 @@
         },
         {
           "id": "Prednisolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00860"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -258,7 +274,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Bronchospasm Paradoxical",
@@ -266,11 +283,13 @@
         },
         {
           "id": "Salmeterol",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00938"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -305,7 +324,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Oropharyngeal Candidiasis",
@@ -313,11 +333,13 @@
         },
         {
           "id": "Tiotropium",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01409"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -355,19 +377,23 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Paramethasone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01384"
         },
         {
           "id": "Prednisolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00860"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -411,7 +437,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Blood Cortisol Decreased",
@@ -419,11 +446,13 @@
         },
         {
           "id": "Triamcinolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00620"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -459,7 +488,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Bronchospasm Paradoxical",
@@ -467,11 +497,13 @@
         },
         {
           "id": "Tiotropium",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01409"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -506,7 +538,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Necrosis Ischaemic",
@@ -514,11 +547,13 @@
         },
         {
           "id": "Betamethasone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00443"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -554,7 +589,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Oropharyngeal Candidiasis",
@@ -562,11 +598,13 @@
         },
         {
           "id": "Prednisone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00635"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -605,19 +643,23 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Fluprednidene Acetate",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB14634"
         },
         {
           "id": "Hydrocortisone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00741"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -658,7 +700,8 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Hyperadrenocorticism",
@@ -666,11 +709,13 @@
         },
         {
           "id": "Prednisolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00860"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -706,19 +751,23 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Loteprednol",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00873"
         },
         {
           "id": "Prednisolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00860"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [
@@ -762,19 +811,23 @@
       "nodes": [
         {
           "id": "Budesonide",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01222"
         },
         {
           "id": "Hydrocortamate",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00769"
         },
         {
           "id": "Prednisolone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00860"
         },
         {
           "id": "Asthma",
-          "type": "Disease"
+          "type": "Disease",
+          "link": "https://disease-ontology.org/?id=DOID:2841"
         }
       ],
       "edges": [

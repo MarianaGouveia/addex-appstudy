@@ -10,7 +10,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Histamine H1 Receptor Antagonists",
@@ -18,11 +19,13 @@
         },
         {
           "id": "Carbinoxamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00630"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -57,7 +60,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Labyrinthitis",
@@ -65,11 +69,13 @@
         },
         {
           "id": "Clemastine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00283"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -104,7 +110,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Histamine H1 Receptor Antagonists",
@@ -112,11 +119,13 @@
         },
         {
           "id": "Diphenhydramine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01075"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -151,7 +160,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Labyrinthitis",
@@ -159,11 +169,13 @@
         },
         {
           "id": "Carbinoxamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00630"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -198,7 +210,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Hysteria",
@@ -206,11 +219,13 @@
         },
         {
           "id": "Carbinoxamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00630"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -245,7 +260,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Conversion Disorder",
@@ -253,11 +269,13 @@
         },
         {
           "id": "Carbinoxamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00630"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -292,19 +310,23 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Captodiame",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB13674"
         },
         {
           "id": "Brompheniramine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01160"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -346,7 +368,8 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Labyrinthitis",
@@ -354,11 +377,13 @@
         },
         {
           "id": "Diphenhydramine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01075"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -393,19 +418,23 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Captodiame",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB13674"
         },
         {
           "id": "Carbinoxamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00630"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -447,19 +476,23 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Bepotastine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB12710"
         },
         {
           "id": "Domperidone",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01184"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
@@ -500,19 +533,23 @@
       "nodes": [
         {
           "id": "Chlorphenamine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB01114"
         },
         {
           "id": "Cloperastine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB13887"
         },
         {
           "id": "Cinnarizine",
-          "type": "Compound"
+          "type": "Compound",
+          "link": "https://go.drugbank.com/drugs/DB00568"
         },
         {
           "id": "Cyp2d6",
-          "type": "Gene"
+          "type": "Gene",
+          "link": "https://www.ncbi.nlm.nih.gov/gene/1565"
         }
       ],
       "edges": [
