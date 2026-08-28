@@ -8,7 +8,8 @@ is online, focused, or during the ten-second flush interval.
 
 1. Create a Supabase project in the institution-approved EU region.
 2. Open **SQL Editor** in that project.
-3. Run `supabase/migrations/001_create_interaction_logs.sql`.
+3. Run the SQL files in `supabase/migrations` in numeric order. If migration
+   `001` was already applied, run `002_accept_google_form_ids.sql` now.
 4. In **Table Editor**, verify that `interaction_logs` exists.
 
 The migration permits the anonymous website role to insert rows only. It does
@@ -44,19 +45,23 @@ forms: true,
 ```
 
 Keep `logs: false` until the database and environment variables are ready.
-With `forms: false`, every event deliberately uses `Form0`.
+With `forms: false`, every event deliberately uses `unassigned`.
 
 ## 4. Create study links
 
-When form logging is enabled, include a validated form code in each URL:
+When form logging is enabled, include the Google Form ID in each study URL.
+For a link such as
+`https://docs.google.com/forms/d/1Ydx6leS-Cst9bupwwnTBIIUwkNVg4dw0grLgtO9GHMA`,
+the ID is the segment after `/forms/d/`:
 
 ```text
-&form=Form1
+&form=1Ydx6leS-Cst9bupwwnTBIIUwkNVg4dw0grLgtO9GHMA
 ```
 
-The form value must be `Form1`, `Form2`, and so on. Missing or invalid values
-fall back to `Form0`. The pair code is derived from `task`, `source`, `target`,
-and `modality`; it is not accepted directly from the URL.
+The application also accepts a URL-encoded full `docs.google.com/forms` link,
+but stores only its ID. Missing, invalid, or non-Google values fall back to
+`unassigned`. The pair code is derived from `task`, `source`, `target`, and
+`modality`; it is not accepted directly from the URL.
 
 Example result:
 
