@@ -63,6 +63,9 @@ but stores only its ID. Missing, invalid, or non-Google values fall back to
 `unassigned`. The pair code is derived from `task`, `source`, `target`, and
 `modality`; it is not accepted directly from the URL.
 
+`pair_code` is the canonical stored pair identifier. Migration `003` removes
+the redundant `task_id`, `source_id`, `target_id`, and `modality` columns.
+
 Example result:
 
 ```text

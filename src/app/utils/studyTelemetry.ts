@@ -64,10 +64,6 @@ interface QueuedStudyEvent {
   sequence_number: number;
   form_code: string;
   pair_code: string;
-  task_id: string;
-  source_id: string;
-  target_id: string;
-  modality: string;
   persona: string;
   dataset: string;
   event_name: StudyEventName;
@@ -110,6 +106,21 @@ function writeQueue(events: QueuedStudyEvent[]): void {
   }
 }
 
+function removeRedundantPairFields(
+  queuedEvent: QueuedStudyEvent
+): QueuedStudyEvent {
+  // Older deployed clients persisted these fields in localStorage. Strip them
+  // at upload time so those queued events remain compatible after migration 003.
+  const event = {
+    ...queuedEvent,
+  } as QueuedStudyEvent & Record<string, unknown>;
+  delete event.task_id;
+  delete event.source_id;
+  delete event.target_id;
+  delete event.modality;
+  return event;
+}
+
 function getSupabaseConfig() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.replace(/\/$/, "");
   const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
@@ -142,10 +153,6 @@ export function queueStudyEvent(
     sequence_number: session.nextSequenceNumber++,
     form_code: identity.formCode,
     pair_code: identity.pairCode,
-    task_id: identity.taskId,
-    source_id: identity.sourceId,
-    target_id: identity.targetId,
-    modality: identity.modality,
     persona: identity.persona,
     dataset: identity.dataset,
     event_name: eventName,
@@ -171,6 +178,7 @@ export function flushStudyTelemetry(): Promise<void> {
     while (true) {
       const batch = readQueue().slice(0, BATCH_SIZE);
       if (batch.length === 0) return;
+      const uploadBatch = batch.map(removeRedundantPairFields);
 
       try {
         const response = await fetch(
@@ -182,7 +190,7 @@ export function flushStudyTelemetry(): Promise<void> {
               "Content-Type": "application/json",
               Prefer: "return=minimal",
             },
-            body: JSON.stringify(batch),
+            body: JSON.stringify(uploadBatch),
             keepalive: true,
           }
         );
