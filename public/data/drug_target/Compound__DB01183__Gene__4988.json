@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01183 - Gene::4988",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Naloxone and Oprm1. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Naloxone to Oprm1 is summarized below. The paths capture pharmacological-class membership, compound similarity, adverse-event concordance, and binding relationships through intermediary compounds. These associations do not establish direct binding or functional modulation of Oprm1 by Naloxone.",
   "paths": [
     {
       "score": {
@@ -52,7 +52,7 @@
         ]
       },
       "id": "path_1",
-      "verbalization": "The source compound is included in Opioid Antagonists; Opioid Antagonists includes Methylnaltrexone; Methylnaltrexone binds the target gene."
+      "verbalization": "Shared membership in Opioid Antagonists links the source compound to Methylnaltrexone, which also binds the target gene."
     },
     {
       "score": {
@@ -113,7 +113,7 @@
         ]
       },
       "id": "path_2",
-      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Dezocine; Dezocine binds the target gene."
+      "verbalization": "Compound-similarity evidence through Levallorphan links the source compound to Dezocine, which also binds the target gene."
     },
     {
       "score": {
@@ -174,7 +174,7 @@
         ]
       },
       "id": "path_3",
-      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Pentazocine; Pentazocine binds the target gene."
+      "verbalization": "Compound-similarity evidence through Levallorphan links the source compound to Pentazocine, which also binds the target gene."
     },
     {
       "score": {
@@ -235,7 +235,7 @@
         ]
       },
       "id": "path_4",
-      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Butorphanol; Butorphanol binds the target gene."
+      "verbalization": "Compound-similarity evidence through Levallorphan links the source compound to Butorphanol, which also binds the target gene."
     },
     {
       "score": {
@@ -296,7 +296,7 @@
         ]
       },
       "id": "path_5",
-      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Levorphanol; Levorphanol binds the target gene."
+      "verbalization": "Compound-similarity evidence through Levallorphan links the source compound to Levorphanol, which also binds the target gene."
     },
     {
       "score": {
@@ -348,7 +348,7 @@
         ]
       },
       "id": "path_6",
-      "verbalization": "The source compound causes Drug Dependence; Drug Dependence is caused by Pentazocine; Pentazocine binds the target gene."
+      "verbalization": "Adverse-event concordance via Drug Dependence links the source compound to Pentazocine, which also binds the target gene."
     }
   ]
 }

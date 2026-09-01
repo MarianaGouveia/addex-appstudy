@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01039 - Disease::DOID:3393",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Fenofibrate and Coronary Artery Disease. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Fenofibrate to Coronary Artery Disease is summarized below. The paths capture shared pharmacological-class membership involving a compound with an established treatment association. These signals are hypothesis-generating and do not establish efficacy or causality.",
   "paths": [
     {
       "score": {
@@ -52,7 +52,7 @@
         ]
       },
       "id": "path_1",
-      "verbalization": "The source compound is included in Peroxisome Proliferator-activated Receptor Alpha Agonists; Peroxisome Proliferator-activated Receptor Alpha Agonists includes Gemfibrozil; Gemfibrozil treats the target disease."
+      "verbalization": "Shared membership in Peroxisome Proliferator-activated Receptor Alpha Agonists links the source compound to Gemfibrozil, whose treatment association with the target disease defines a class-mediated repurposing signal."
     },
     {
       "score": {
@@ -104,7 +104,7 @@
         ]
       },
       "id": "path_2",
-      "verbalization": "The source compound is included in Ppar Alpha; Ppar Alpha includes Gemfibrozil; Gemfibrozil treats the target disease."
+      "verbalization": "Shared membership in Ppar Alpha links the source compound to Gemfibrozil, whose treatment association with the target disease defines a class-mediated repurposing signal."
     }
   ]
 }

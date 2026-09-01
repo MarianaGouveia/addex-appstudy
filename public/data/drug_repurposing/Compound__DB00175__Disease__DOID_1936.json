@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB00175 - Disease::DOID:1936",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Pravastatin and Atherosclerosis. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Pravastatin to Atherosclerosis is summarized below. The paths capture adverse-event concordance and disease-anatomy context involving compounds with established treatment associations. These signals are hypothesis-generating and do not establish efficacy or causality.",
   "paths": [
     {
       "score": {
@@ -52,7 +52,7 @@
         ]
       },
       "id": "path_1",
-      "verbalization": "The source compound causes Muscle Swelling; Muscle Swelling is caused by Rosuvastatin; Rosuvastatin treats the target disease."
+      "verbalization": "Adverse-event concordance via Muscle Swelling links the source compound to Rosuvastatin, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -104,7 +104,7 @@
         ]
       },
       "id": "path_2",
-      "verbalization": "The source compound causes Immune-mediated Necrotising Myopathy; Immune-mediated Necrotising Myopathy is caused by Rosuvastatin; Rosuvastatin treats the target disease."
+      "verbalization": "Adverse-event concordance via Immune-mediated Necrotising Myopathy links the source compound to Rosuvastatin, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -156,7 +156,7 @@
         ]
       },
       "id": "path_3",
-      "verbalization": "The source compound causes Immune-mediated Necrotising Myopathy; Immune-mediated Necrotising Myopathy is caused by Ezetimibe; Ezetimibe treats the target disease."
+      "verbalization": "Adverse-event concordance via Immune-mediated Necrotising Myopathy links the source compound to Ezetimibe, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -211,7 +211,7 @@
         ]
       },
       "id": "path_4",
-      "verbalization": "The source compound causes Dermatomyositis; Dermatomyositis is caused by Ezetimibe; Ezetimibe treats the target disease."
+      "verbalization": "Adverse-event concordance via Dermatomyositis links the source compound to Ezetimibe, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -263,7 +263,7 @@
         ]
       },
       "id": "path_5",
-      "verbalization": "The source compound causes Myoglobinuria; Myoglobinuria is caused by Rosuvastatin; Rosuvastatin treats the target disease."
+      "verbalization": "Adverse-event concordance via Myoglobinuria links the source compound to Rosuvastatin, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -315,7 +315,7 @@
         ]
       },
       "id": "path_6",
-      "verbalization": "The source compound causes Myoglobin Urine Present; Myoglobin Urine Present is caused by Rosuvastatin; Rosuvastatin treats the target disease."
+      "verbalization": "Adverse-event concordance via Myoglobin Urine Present links the source compound to Rosuvastatin, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -370,7 +370,7 @@
         ]
       },
       "id": "path_7",
-      "verbalization": "The source compound causes Polymyalgia Rheumatica; Polymyalgia Rheumatica is caused by Ezetimibe; Ezetimibe treats the target disease."
+      "verbalization": "Adverse-event concordance via Polymyalgia Rheumatica links the source compound to Ezetimibe, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -422,7 +422,7 @@
         ]
       },
       "id": "path_8",
-      "verbalization": "The source compound causes Hypersensitive Syndrome; Hypersensitive Syndrome is caused by Ezetimibe; Ezetimibe treats the target disease."
+      "verbalization": "Adverse-event concordance via Hypersensitive Syndrome links the source compound to Ezetimibe, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -474,7 +474,7 @@
         ]
       },
       "id": "path_9",
-      "verbalization": "The source compound causes Drug Reaction With Eosinophilia And Systemic Symptoms; Drug Reaction With Eosinophilia And Systemic Symptoms is caused by Ezetimibe; Ezetimibe treats the target disease."
+      "verbalization": "Adverse-event concordance via Drug Reaction With Eosinophilia And Systemic Symptoms links the source compound to Ezetimibe, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -525,7 +525,7 @@
         ]
       },
       "id": "path_10",
-      "verbalization": "The source compound treats Coronary Artery Disease; Coronary Artery Disease localizes Brachiocephalic Artery; Brachiocephalic Artery is localized by the target disease."
+      "verbalization": "Disease-anatomy convergence links the source compound's treatment association with Coronary Artery Disease to localization of both Coronary Artery Disease and the target disease in Brachiocephalic Artery."
     }
   ]
 }

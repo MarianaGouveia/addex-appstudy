@@ -9,7 +9,7 @@ export const featureFlags = {
   colorChange: false,
   showIC: false,
   graphSetting: false,
-  exportContent: true,
+  exportContent: false,
   /** Send pseudonymous study interaction events to the configured log store. */
   logs: true,
   /** Read the participant's Google Form ID from the study link. */

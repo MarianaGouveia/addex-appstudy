@@ -41,7 +41,6 @@ export default function SumSideMenu({
   const textScale = collapsed ? 0.75 : expanded ? 1.35 : 1;
   const [activeTab, setActiveTab] = useState<"verbalization" | "paths">("verbalization");
   const [otherPathsOpen, setOtherPathsOpen] = useState(false);
-  const [globalExplanation, setGlobalExplanation] = useState("");
   const [verbalizationFontSize, setVerbalizationFontSize] = useState(16);
   const [copied, setCopied] = useState(false);
   const readingThresholdsRef = useRef(new Set<number>());
@@ -55,13 +54,46 @@ export default function SumSideMenu({
   const isGraphModality = selectedModality === "graph";
   const isTextModality = selectedModality === "text";
   const isSummarizeModality = selectedModality === "sumarize";
-  const displayedTab = isSummarizeModality
-    ? "verbalization"
-    : isGraphModality
+  const displayedTab = isGraphModality
     ? "paths"
     : isTextModality
       ? "verbalization"
       : activeTab;
+  const globalExplanation = useMemo(() => {
+    const pairExplanation = pair?.verbalization?.trim() ?? "";
+
+    // Hybrid and summarize explanations follow the participant's selected
+    // paths. Text retains the saved pair-level verbalization, while graph does
+    // not display the verbalization tab.
+    const followsPathSelection =
+      selectedModality === "hybrid" || selectedModality === "sumarize";
+    if (!pair || !followsPathSelection) return pairExplanation;
+
+    const selectedPaths = pair.paths
+      .map((path, pathIndex) => ({ path, pathIndex }))
+      .filter(({ path }) => visiblePaths.has(path.id));
+
+    if (selectedPaths.length === 0) {
+      return [pairExplanation, "No path-level evidence is currently selected."]
+        .filter(Boolean)
+        .join("\n\n");
+    }
+
+    const selectedEvidence = selectedPaths
+      .map(({ path, pathIndex }) => {
+        const pathExplanation = path.verbalization?.trim()
+          || "No path-level verbalization is available.";
+        return `Path ${pathIndex + 1}: ${pathExplanation}`;
+      })
+      .join("\n");
+
+    return [
+      pairExplanation,
+      `Selected path evidence (${selectedPaths.length} of ${pair.paths.length}):\n${selectedEvidence}`,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+  }, [pair, selectedModality, visiblePaths]);
 
   const MIN_FONT = 12;
   const MAX_FONT = 30;
@@ -91,9 +123,8 @@ export default function SumSideMenu({
   };
 
   useEffect(() => {
-    setGlobalExplanation(pair?.verbalization?.trim() ?? "");
     readingThresholdsRef.current.clear();
-  }, [pair]);
+  }, [globalExplanation]);
 
   const copyVerbalization = async () => {
     try {
@@ -271,7 +302,7 @@ export default function SumSideMenu({
                 Verbalization
               </div>
             )}
-            {!isTextModality && !isSummarizeModality && (
+            {!isTextModality && (
               <div
                 style={styles.tab(displayedTab === "paths")}
                 onClick={() => changeContentTab("paths")}
@@ -427,6 +458,7 @@ export default function SumSideMenu({
                       }}
                     >
                       <p
+                        aria-live="polite"
                         style={{
                           textAlign: "justify",
                           textJustify: "inter-word",

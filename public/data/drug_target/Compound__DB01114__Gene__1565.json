@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01114 - Gene::1565",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Chlorphenamine and Cyp2d6. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Chlorphenamine to Cyp2d6 is summarized below. The paths capture pharmacological-class membership, compound similarity, adverse-event concordance, and binding relationships through intermediary compounds. These associations do not establish direct binding or functional modulation of Cyp2d6 by Chlorphenamine.",
   "paths": [
     {
       "score": {
@@ -51,7 +51,7 @@
         ]
       },
       "id": "path_1",
-      "verbalization": "The source compound is included in Histamine H1 Receptor Antagonists; Histamine H1 Receptor Antagonists includes Carbinoxamine; Carbinoxamine binds the target gene."
+      "verbalization": "Shared membership in Histamine H1 Receptor Antagonists links the source compound to Carbinoxamine, which also binds the target gene."
     },
     {
       "score": {
@@ -102,7 +102,7 @@
         ]
       },
       "id": "path_2",
-      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Clemastine; Clemastine binds the target gene."
+      "verbalization": "Adverse-event concordance via Labyrinthitis links the source compound to Clemastine, which also binds the target gene."
     },
     {
       "score": {
@@ -153,7 +153,7 @@
         ]
       },
       "id": "path_3",
-      "verbalization": "The source compound is included in Histamine H1 Receptor Antagonists; Histamine H1 Receptor Antagonists includes Diphenhydramine; Diphenhydramine binds the target gene."
+      "verbalization": "Shared membership in Histamine H1 Receptor Antagonists links the source compound to Diphenhydramine, which also binds the target gene."
     },
     {
       "score": {
@@ -204,7 +204,7 @@
         ]
       },
       "id": "path_4",
-      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Carbinoxamine; Carbinoxamine binds the target gene."
+      "verbalization": "Adverse-event concordance via Labyrinthitis links the source compound to Carbinoxamine, which also binds the target gene."
     },
     {
       "score": {
@@ -255,7 +255,7 @@
         ]
       },
       "id": "path_5",
-      "verbalization": "The source compound causes Hysteria; Hysteria is caused by Carbinoxamine; Carbinoxamine binds the target gene."
+      "verbalization": "Adverse-event concordance via Hysteria links the source compound to Carbinoxamine, which also binds the target gene."
     },
     {
       "score": {
@@ -306,7 +306,7 @@
         ]
       },
       "id": "path_6",
-      "verbalization": "The source compound causes Conversion Disorder; Conversion Disorder is caused by Carbinoxamine; Carbinoxamine binds the target gene."
+      "verbalization": "Adverse-event concordance via Conversion Disorder links the source compound to Carbinoxamine, which also binds the target gene."
     },
     {
       "score": {
@@ -365,7 +365,7 @@
         ]
       },
       "id": "path_7",
-      "verbalization": "The source compound resembles Captodiame; Captodiame resembles Brompheniramine; Brompheniramine binds the target gene."
+      "verbalization": "Compound-similarity evidence through Captodiame links the source compound to Brompheniramine, which also binds the target gene."
     },
     {
       "score": {
@@ -416,7 +416,7 @@
         ]
       },
       "id": "path_8",
-      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Diphenhydramine; Diphenhydramine binds the target gene."
+      "verbalization": "Adverse-event concordance via Labyrinthitis links the source compound to Diphenhydramine, which also binds the target gene."
     },
     {
       "score": {
@@ -475,7 +475,7 @@
         ]
       },
       "id": "path_9",
-      "verbalization": "The source compound resembles Captodiame; Captodiame resembles Carbinoxamine; Carbinoxamine binds the target gene."
+      "verbalization": "Compound-similarity evidence through Captodiame links the source compound to Carbinoxamine, which also binds the target gene."
     },
     {
       "score": {
@@ -533,7 +533,7 @@
         ]
       },
       "id": "path_10",
-      "verbalization": "The source compound resembles Bepotastine; Bepotastine resembles Domperidone; Domperidone binds the target gene."
+      "verbalization": "Compound-similarity evidence through Bepotastine links the source compound to Domperidone, which also binds the target gene."
     },
     {
       "score": {
@@ -588,7 +588,7 @@
         ]
       },
       "id": "path_11",
-      "verbalization": "The source compound resembles Cloperastine; Cloperastine resembles Cinnarizine; Cinnarizine binds the target gene."
+      "verbalization": "Compound-similarity evidence through Cloperastine links the source compound to Cinnarizine, which also binds the target gene."
     }
   ]
 }

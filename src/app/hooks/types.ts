@@ -24,6 +24,7 @@ export interface Path {
   id: string;
   score: Score;
   reasoning: string;
+  verbalization?: string;
   nodes: Node[];
   edges: Edge[];
   lowest_common_ancestors?: Record<string, string[]>;

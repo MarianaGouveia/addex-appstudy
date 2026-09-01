@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01222 - Disease::DOID:2841",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Budesonide and Asthma. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Budesonide to Asthma is summarized below. The paths capture adverse-event concordance, compound similarity, and shared pharmacological-class membership involving compounds with established treatment associations. These signals are hypothesis-generating and do not establish efficacy or causality.",
   "paths": [
     {
       "score": {
@@ -55,7 +55,7 @@
         ]
       },
       "id": "path_1",
-      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Beclomethasone; Beclomethasone treats the target disease."
+      "verbalization": "Adverse-event concordance via Oropharyngeal Candidiasis links the source compound to Beclomethasone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -107,7 +107,7 @@
         ]
       },
       "id": "path_2",
-      "verbalization": "The source compound causes Hyperadrenocorticism; Hyperadrenocorticism is caused by Beclomethasone; Beclomethasone treats the target disease."
+      "verbalization": "Adverse-event concordance via Hyperadrenocorticism links the source compound to Beclomethasone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -166,7 +166,7 @@
         ]
       },
       "id": "path_3",
-      "verbalization": "The source compound resembles Fluprednidene Acetate; Fluprednidene Acetate resembles Beclomethasone; Beclomethasone treats the target disease."
+      "verbalization": "Compound-similarity evidence through Fluprednidene Acetate links the source compound to Beclomethasone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -217,7 +217,7 @@
         ]
       },
       "id": "path_4",
-      "verbalization": "The source compound is included in Corticosteroid Hormone Receptor Agonists; Corticosteroid Hormone Receptor Agonists includes Hydrocortisone; Hydrocortisone treats the target disease."
+      "verbalization": "Shared membership in Corticosteroid Hormone Receptor Agonists links the source compound to Hydrocortisone, whose treatment association with the target disease defines a class-mediated repurposing signal."
     },
     {
       "score": {
@@ -269,7 +269,7 @@
         ]
       },
       "id": "path_5",
-      "verbalization": "The source compound is included in Corticosteroid Hormone Receptor Agonists; Corticosteroid Hormone Receptor Agonists includes Prednisolone; Prednisolone treats the target disease."
+      "verbalization": "Shared membership in Corticosteroid Hormone Receptor Agonists links the source compound to Prednisolone, whose treatment association with the target disease defines a class-mediated repurposing signal."
     },
     {
       "score": {
@@ -320,7 +320,7 @@
         ]
       },
       "id": "path_6",
-      "verbalization": "The source compound causes Bronchospasm Paradoxical; Bronchospasm Paradoxical is caused by Salmeterol; Salmeterol treats the target disease."
+      "verbalization": "Adverse-event concordance via Bronchospasm Paradoxical links the source compound to Salmeterol, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -374,7 +374,7 @@
         ]
       },
       "id": "path_7",
-      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Tiotropium; Tiotropium treats the target disease."
+      "verbalization": "Adverse-event concordance via Oropharyngeal Candidiasis links the source compound to Tiotropium, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -435,7 +435,7 @@
         ]
       },
       "id": "path_8",
-      "verbalization": "The source compound resembles Paramethasone; Paramethasone resembles Prednisolone; Prednisolone treats the target disease."
+      "verbalization": "Compound-similarity evidence through Paramethasone links the source compound to Prednisolone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -487,7 +487,7 @@
         ]
       },
       "id": "path_9",
-      "verbalization": "The source compound causes Blood Cortisol Decreased; Blood Cortisol Decreased is caused by Triamcinolone; Triamcinolone treats the target disease."
+      "verbalization": "Adverse-event concordance via Blood Cortisol Decreased links the source compound to Triamcinolone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -538,7 +538,7 @@
         ]
       },
       "id": "path_10",
-      "verbalization": "The source compound causes Bronchospasm Paradoxical; Bronchospasm Paradoxical is caused by Tiotropium; Tiotropium treats the target disease."
+      "verbalization": "Adverse-event concordance via Bronchospasm Paradoxical links the source compound to Tiotropium, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -590,7 +590,7 @@
         ]
       },
       "id": "path_11",
-      "verbalization": "The source compound causes Necrosis Ischaemic; Necrosis Ischaemic is caused by Betamethasone; Betamethasone treats the target disease."
+      "verbalization": "Adverse-event concordance via Necrosis Ischaemic links the source compound to Betamethasone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -645,7 +645,7 @@
         ]
       },
       "id": "path_12",
-      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Prednisone; Prednisone treats the target disease."
+      "verbalization": "Adverse-event concordance via Oropharyngeal Candidiasis links the source compound to Prednisone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -703,7 +703,7 @@
         ]
       },
       "id": "path_13",
-      "verbalization": "The source compound resembles Fluprednidene Acetate; Fluprednidene Acetate resembles Hydrocortisone; Hydrocortisone treats the target disease."
+      "verbalization": "Compound-similarity evidence through Fluprednidene Acetate links the source compound to Hydrocortisone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -755,7 +755,7 @@
         ]
       },
       "id": "path_14",
-      "verbalization": "The source compound causes Hyperadrenocorticism; Hyperadrenocorticism is caused by Prednisolone; Prednisolone treats the target disease."
+      "verbalization": "Adverse-event concordance via Hyperadrenocorticism links the source compound to Prednisolone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -816,7 +816,7 @@
         ]
       },
       "id": "path_15",
-      "verbalization": "The source compound resembles Loteprednol; Loteprednol resembles Prednisolone; Prednisolone treats the target disease."
+      "verbalization": "Compound-similarity evidence through Loteprednol links the source compound to Prednisolone, whose treatment association with the target disease defines an indirect repurposing signal."
     },
     {
       "score": {
@@ -877,7 +877,7 @@
         ]
       },
       "id": "path_16",
-      "verbalization": "The source compound resembles Hydrocortamate; Hydrocortamate resembles Prednisolone; Prednisolone treats the target disease."
+      "verbalization": "Compound-similarity evidence through Hydrocortamate links the source compound to Prednisolone, whose treatment association with the target disease defines an indirect repurposing signal."
     }
   ]
 }

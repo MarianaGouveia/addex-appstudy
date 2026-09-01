@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB00714 - Gene::1813",
-  "verbalization": "The available evidence suggests a potential indirect relationship between Apomorphine and Drd2. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
+  "verbalization": "Indirect, path-based evidence linking Apomorphine to Drd2 is summarized below. The paths capture functional convergence, polypharmacology, and adverse-event concordance across intermediary genes and compounds. These associations do not establish direct binding or functional modulation of Drd2 by Apomorphine.",
   "paths": [
     {
       "score": {
@@ -46,7 +46,7 @@
         }
       ],
       "id": "path_1",
-      "verbalization": "The source compound binds Drd4; Drd4 participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go; the target gene participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go."
+      "verbalization": "Functional convergence at Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go links the source-bound gene Drd4 with the target gene, which is annotated to the same biological activity."
     },
     {
       "score": {
@@ -92,7 +92,7 @@
         }
       ],
       "id": "path_2",
-      "verbalization": "The source compound binds Drd3; Drd3 participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go; the target gene participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go."
+      "verbalization": "Functional convergence at Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go links the source-bound gene Drd3 with the target gene, which is annotated to the same biological activity."
     },
     {
       "score": {
@@ -138,7 +138,7 @@
         }
       ],
       "id": "path_3",
-      "verbalization": "The source compound binds Drd4; Drd4 participates in Dopamine Neurotransmitter Receptor Activity; the target gene participates in Dopamine Neurotransmitter Receptor Activity."
+      "verbalization": "Functional convergence at Dopamine Neurotransmitter Receptor Activity links the source-bound gene Drd4 with the target gene, which is annotated to the same biological activity."
     },
     {
       "score": {
@@ -184,7 +184,7 @@
         }
       ],
       "id": "path_4",
-      "verbalization": "The source compound binds Drd3; Drd3 participates in Dopamine Neurotransmitter Receptor Activity; the target gene participates in Dopamine Neurotransmitter Receptor Activity."
+      "verbalization": "Functional convergence at Dopamine Neurotransmitter Receptor Activity links the source-bound gene Drd3 with the target gene, which is annotated to the same biological activity."
     },
     {
       "score": {
@@ -236,7 +236,7 @@
         ]
       },
       "id": "path_5",
-      "verbalization": "The source compound binds Drd4; Drd4 is bound by Remoxipride; Remoxipride binds the target gene."
+      "verbalization": "Polypharmacology evidence via shared binding at Drd4 links the source compound to Remoxipride, which also binds the target gene."
     },
     {
       "score": {
@@ -289,7 +289,7 @@
         ]
       },
       "id": "path_6",
-      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Minaprine; Minaprine binds the target gene."
+      "verbalization": "Polypharmacology evidence via shared binding at Htr2c links the source compound to Minaprine, which also binds the target gene."
     },
     {
       "score": {
@@ -342,7 +342,7 @@
         ]
       },
       "id": "path_7",
-      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Lisuride; Lisuride binds the target gene."
+      "verbalization": "Polypharmacology evidence via shared binding at Htr2c links the source compound to Lisuride, which also binds the target gene."
     },
     {
       "score": {
@@ -395,7 +395,7 @@
         ]
       },
       "id": "path_8",
-      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Cabergoline; Cabergoline binds the target gene."
+      "verbalization": "Polypharmacology evidence via shared binding at Htr2c links the source compound to Cabergoline, which also binds the target gene."
     },
     {
       "score": {
@@ -447,7 +447,7 @@
         ]
       },
       "id": "path_9",
-      "verbalization": "The source compound causes Pathological Gambling; Pathological Gambling is caused by Lisuride; Lisuride binds the target gene."
+      "verbalization": "Adverse-event concordance via Pathological Gambling links the source compound to Lisuride, which also binds the target gene."
     },
     {
       "score": {
@@ -499,7 +499,7 @@
         ]
       },
       "id": "path_10",
-      "verbalization": "The source compound causes Hypersexuality; Hypersexuality is caused by Lisuride; Lisuride binds the target gene."
+      "verbalization": "Adverse-event concordance via Hypersexuality links the source compound to Lisuride, which also binds the target gene."
     },
     {
       "score": {
@@ -551,7 +551,7 @@
         ]
       },
       "id": "path_11",
-      "verbalization": "The source compound causes Pathological Gambling; Pathological Gambling is caused by Cabergoline; Cabergoline binds the target gene."
+      "verbalization": "Adverse-event concordance via Pathological Gambling links the source compound to Cabergoline, which also binds the target gene."
     },
     {
       "score": {
@@ -603,7 +603,7 @@
         ]
       },
       "id": "path_12",
-      "verbalization": "The source compound causes Hypersexuality; Hypersexuality is caused by Cabergoline; Cabergoline binds the target gene."
+      "verbalization": "Adverse-event concordance via Hypersexuality links the source compound to Cabergoline, which also binds the target gene."
     }
   ]
 }
