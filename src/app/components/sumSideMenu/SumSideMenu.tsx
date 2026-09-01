@@ -6,6 +6,7 @@ import { Pair } from "@/app/hooks/types";
 import PathList from "../pathList/PathList";
 import { featureFlags } from "@/app/config/featureFlags";
 import { useStudyEventLogger } from "@/app/hooks/useStudyTelemetry";
+import { composePathAwareVerbalization } from "@/app/utils/composePathAwareVerbalization";
 
 interface SumSideMenuProps {
   collapsed: boolean;
@@ -54,7 +55,9 @@ export default function SumSideMenu({
   const isGraphModality = selectedModality === "graph";
   const isTextModality = selectedModality === "text";
   const isSummarizeModality = selectedModality === "sumarize";
-  const displayedTab = isGraphModality
+  const displayedTab = isSummarizeModality
+    ? "paths"
+    : isGraphModality
     ? "paths"
     : isTextModality
       ? "verbalization"
@@ -62,37 +65,10 @@ export default function SumSideMenu({
   const globalExplanation = useMemo(() => {
     const pairExplanation = pair?.verbalization?.trim() ?? "";
 
-    // Hybrid and summarize explanations follow the participant's selected
-    // paths. Text retains the saved pair-level verbalization, while graph does
-    // not display the verbalization tab.
-    const followsPathSelection =
-      selectedModality === "hybrid" || selectedModality === "sumarize";
-    if (!pair || !followsPathSelection) return pairExplanation;
-
-    const selectedPaths = pair.paths
-      .map((path, pathIndex) => ({ path, pathIndex }))
-      .filter(({ path }) => visiblePaths.has(path.id));
-
-    if (selectedPaths.length === 0) {
-      return [pairExplanation, "No path-level evidence is currently selected."]
-        .filter(Boolean)
-        .join("\n\n");
-    }
-
-    const selectedEvidence = selectedPaths
-      .map(({ path, pathIndex }) => {
-        const pathExplanation = path.verbalization?.trim()
-          || "No path-level verbalization is available.";
-        return `Path ${pathIndex + 1}: ${pathExplanation}`;
-      })
-      .join("\n");
-
-    return [
-      pairExplanation,
-      `Selected path evidence (${selectedPaths.length} of ${pair.paths.length}):\n${selectedEvidence}`,
-    ]
-      .filter(Boolean)
-      .join("\n\n");
+    // Hybrid follows graph path visibility. Summarize renders the same
+    // adaptive text in the dedicated main panel instead of this side menu.
+    if (!pair || selectedModality !== "hybrid") return pairExplanation;
+    return composePathAwareVerbalization(pair, visiblePaths);
   }, [pair, selectedModality, visiblePaths]);
 
   const MIN_FONT = 12;
@@ -294,7 +270,7 @@ export default function SumSideMenu({
       {!collapsed && (
         <>
           <div style={styles.tabsContainer}>
-            {!isGraphModality && (
+            {!isGraphModality && !isSummarizeModality && (
               <div
                 style={styles.tab(displayedTab === "verbalization")}
                 onClick={() => changeContentTab("verbalization")}

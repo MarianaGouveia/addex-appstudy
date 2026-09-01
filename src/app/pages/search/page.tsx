@@ -15,6 +15,8 @@ import {
   StudyTelemetryProvider,
   useStudyTelemetry,
 } from "../../hooks/useStudyTelemetry";
+import SummaryVerbalizationPanel from "../../components/sumSideMenu/SummaryVerbalizationPanel";
+import { composePathAwareVerbalization } from "../../utils/composePathAwareVerbalization";
 
 function SearchPageContent() {
   const colors = useTheme();
@@ -140,7 +142,7 @@ function SearchPageContent() {
         setSelectedPair(loadedPair);
         setSearchState({ status: "idle" });
         setRightCollapsed(false);
-        setGraphCollapsed(isSummarizeModality);
+        setGraphCollapsed(false);
         setShowSummaryMenu(true);
         const uniqueNodeIds = new Set(
           loadedPair.paths.flatMap((path) => path.nodes.map((node) => node.id))
@@ -158,9 +160,7 @@ function SearchPageContent() {
             ? 0
             : Math.min(3, loadedPair.paths.length),
           initially_visible_lca_count: uniqueLcaIds.size,
-          initial_panel_layout: isSummarizeModality
-            ? "explanation_only"
-            : "both",
+          initial_panel_layout: "both",
           initial_content_tab:
             selectedModality === "graph" ? "paths" : "verbalization",
           node_count: uniqueNodeIds.size,
@@ -219,6 +219,11 @@ function SearchPageContent() {
       setVisibleLCAs(lcaSet);
     }
   }, [selectedPair, isTextModality]);
+
+  const summarizeVerbalization = useMemo(
+    () => composePathAwareVerbalization(selectedPair, visiblePaths),
+    [selectedPair, visiblePaths]
+  );
 
   // Layout invariant: never allow both graph and verbalization to be hidden.
   // If summary is closed while graph is collapsed, reopen the graph.
@@ -462,8 +467,7 @@ function SearchPageContent() {
           />
         )}
 
-        {/* MAIN CONTENT: sumarize renders only the full-screen verbalization menu. */}
-        {(!isSummarizeModality || !selectedPair) && (
+        {/* MAIN CONTENT: summarize replaces the graph with adaptive text. */}
         <main
           style={{
             flex: 1,
@@ -617,25 +621,30 @@ function SearchPageContent() {
                     height: "100%",
                   }}
                 >
-                  <GraphVisualizer
-                    pair={selectedPair}
-                    manualBuildMode={isTextModality}
-                    visiblePaths={visiblePaths}
-                    visibleLCAs={visibleLCAs}
-                    isVisible={!graphCollapsed}
-                    leftCollapsed={false}
-                    rightCollapsed={rightCollapsed}
-                    hoveredPathId={hoveredPathId}
-                    hoveredLcaName={hoveredLcaName}
-                    hoveredNodeId={hoveredNodeId}
-                    onNodeHover={handleNodeHover}
-                  />
+                  {isSummarizeModality ? (
+                    <SummaryVerbalizationPanel
+                      verbalization={summarizeVerbalization}
+                    />
+                  ) : (
+                    <GraphVisualizer
+                      pair={selectedPair}
+                      manualBuildMode={isTextModality}
+                      visiblePaths={visiblePaths}
+                      visibleLCAs={visibleLCAs}
+                      isVisible={!graphCollapsed}
+                      leftCollapsed={false}
+                      rightCollapsed={rightCollapsed}
+                      hoveredPathId={hoveredPathId}
+                      hoveredLcaName={hoveredLcaName}
+                      hoveredNodeId={hoveredNodeId}
+                      onNodeHover={handleNodeHover}
+                    />
+                  )}
                 </div>
               </div>
             </div>
           )}
         </main>
-        )}
       </div>
     </div>
     </StudyTelemetryProvider>
