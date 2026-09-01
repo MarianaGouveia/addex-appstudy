@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01039 - Disease::DOID:3393",
-  "verbalization": "The visible evidence suggests a potential relationship between Fenofibrate and Coronary Artery Disease (CAD) through a pathway involving PPAR-alpha agonists. Both Fenofibrate and Gemfibrozil, which are included in the PPAR-alpha agonist class, are associated with treating CAD. This connection is supported by the shared lowest common ancestor, Aromatic Ether, and Fibrate Antilipidemic Agent, indicating a common biological mechanism. The scores from the dataset suggest a moderate level of confidence in this relationship, as both entities are linked through a well-defined pharmacological pathway. The evidence highlights the role of PPAR-alpha agonists in modulating lipid metabolism, which is a key factor in the development of CAD. However, the strength of the evidence is moderate, and further research is needed to confirm the direct therapeutic effect of Fenofibrate on CAD.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Fenofibrate and Coronary Artery Disease. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -51,7 +51,8 @@
           "Fibrate Antilipidemic Agent"
         ]
       },
-      "id": "path_672"
+      "id": "path_1",
+      "verbalization": "The source compound is included in Peroxisome Proliferator-activated Receptor Alpha Agonists; Peroxisome Proliferator-activated Receptor Alpha Agonists includes Gemfibrozil; Gemfibrozil treats the target disease."
     },
     {
       "score": {
@@ -102,7 +103,8 @@
           "Fibrate Antilipidemic Agent"
         ]
       },
-      "id": "path_673"
+      "id": "path_2",
+      "verbalization": "The source compound is included in Ppar Alpha; Ppar Alpha includes Gemfibrozil; Gemfibrozil treats the target disease."
     }
   ]
 }

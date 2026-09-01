@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01222 - Disease::DOID:2841",
-  "verbalization": "The visible evidence suggests a potential relationship between Budesonide and Asthma, primarily through its role as a therapeutic glucocorticoid. Budesonide is linked to Asthma via a chain of causation that involves Beclomethasone, a closely related compound. Both Budesonide and Beclomethasone are classified as glucocorticoids, which are known to modulate inflammatory responses in the respiratory system. This suggests that Budesonide may exert its therapeutic effects on Asthma by reducing inflammation, potentially through mechanisms involving the immune system and airway remodeling.\n\nThe evidence also highlights that Budesonide is associated with other conditions, such as Oropharyngeal Candidiasis and Hyperadrenocorticism, which are both linked to Beclomethasone. These connections imply a broader pharmacological relationship between glucocorticoids and inflammatory disorders, reinforcing the possibility that Budesonide could be repurposed for Asthma treatment. However, the strength of this relationship is supported by multiple paths, with scores indicating a moderate level of confidence in the causal link.\n\nWhile the evidence is consistent and supportive, it is important to note that the relationship between Budesonide and Asthma is not yet fully established. Further research is needed to confirm the direct therapeutic effect of Budesonide on Asthma and to explore the underlying mechanisms. The current data suggests that Budesonide may have a role in the pathophysiology of Asthma, but more comprehensive studies are required to determine its potential as a repurposed drug.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Budesonide and Asthma. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -54,7 +54,8 @@
           "Non-Neoplastic Disorder"
         ]
       },
-      "id": "path_612"
+      "id": "path_1",
+      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Beclomethasone; Beclomethasone treats the target disease."
     },
     {
       "score": {
@@ -105,7 +106,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_613"
+      "id": "path_2",
+      "verbalization": "The source compound causes Hyperadrenocorticism; Hyperadrenocorticism is caused by Beclomethasone; Beclomethasone treats the target disease."
     },
     {
       "score": {
@@ -163,7 +165,8 @@
           "Corticosteroid Hormone"
         ]
       },
-      "id": "path_614"
+      "id": "path_3",
+      "verbalization": "The source compound resembles Fluprednidene Acetate; Fluprednidene Acetate resembles Beclomethasone; Beclomethasone treats the target disease."
     },
     {
       "score": {
@@ -213,7 +216,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_615"
+      "id": "path_4",
+      "verbalization": "The source compound is included in Corticosteroid Hormone Receptor Agonists; Corticosteroid Hormone Receptor Agonists includes Hydrocortisone; Hydrocortisone treats the target disease."
     },
     {
       "score": {
@@ -264,7 +268,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_616"
+      "id": "path_5",
+      "verbalization": "The source compound is included in Corticosteroid Hormone Receptor Agonists; Corticosteroid Hormone Receptor Agonists includes Prednisolone; Prednisolone treats the target disease."
     },
     {
       "score": {
@@ -314,7 +319,8 @@
           "Primary Alcohol"
         ]
       },
-      "id": "path_617"
+      "id": "path_6",
+      "verbalization": "The source compound causes Bronchospasm Paradoxical; Bronchospasm Paradoxical is caused by Salmeterol; Salmeterol treats the target disease."
     },
     {
       "score": {
@@ -367,7 +373,8 @@
           "Organic Molecular Entity"
         ]
       },
-      "id": "path_618"
+      "id": "path_7",
+      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Tiotropium; Tiotropium treats the target disease."
     },
     {
       "score": {
@@ -427,7 +434,8 @@
           "Therapeutic Glucocorticoid"
         ]
       },
-      "id": "path_619"
+      "id": "path_8",
+      "verbalization": "The source compound resembles Paramethasone; Paramethasone resembles Prednisolone; Prednisolone treats the target disease."
     },
     {
       "score": {
@@ -478,7 +486,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_620"
+      "id": "path_9",
+      "verbalization": "The source compound causes Blood Cortisol Decreased; Blood Cortisol Decreased is caused by Triamcinolone; Triamcinolone treats the target disease."
     },
     {
       "score": {
@@ -528,7 +537,8 @@
           "Organic Molecular Entity"
         ]
       },
-      "id": "path_621"
+      "id": "path_10",
+      "verbalization": "The source compound causes Bronchospasm Paradoxical; Bronchospasm Paradoxical is caused by Tiotropium; Tiotropium treats the target disease."
     },
     {
       "score": {
@@ -579,7 +589,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_622"
+      "id": "path_11",
+      "verbalization": "The source compound causes Necrosis Ischaemic; Necrosis Ischaemic is caused by Betamethasone; Betamethasone treats the target disease."
     },
     {
       "score": {
@@ -633,7 +644,8 @@
           "Non-Neoplastic Disorder"
         ]
       },
-      "id": "path_623"
+      "id": "path_12",
+      "verbalization": "The source compound causes Oropharyngeal Candidiasis; Oropharyngeal Candidiasis is caused by Prednisone; Prednisone treats the target disease."
     },
     {
       "score": {
@@ -690,7 +702,8 @@
           "Corticosteroid Hormone"
         ]
       },
-      "id": "path_624"
+      "id": "path_13",
+      "verbalization": "The source compound resembles Fluprednidene Acetate; Fluprednidene Acetate resembles Hydrocortisone; Hydrocortisone treats the target disease."
     },
     {
       "score": {
@@ -741,7 +754,8 @@
           "Primary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_625"
+      "id": "path_14",
+      "verbalization": "The source compound causes Hyperadrenocorticism; Hyperadrenocorticism is caused by Prednisolone; Prednisolone treats the target disease."
     },
     {
       "score": {
@@ -801,7 +815,8 @@
           "Therapeutic Glucocorticoid"
         ]
       },
-      "id": "path_626"
+      "id": "path_15",
+      "verbalization": "The source compound resembles Loteprednol; Loteprednol resembles Prednisolone; Prednisolone treats the target disease."
     },
     {
       "score": {
@@ -861,7 +876,8 @@
           "Tertiary Alpha-Hydroxy Ketone"
         ]
       },
-      "id": "path_627"
+      "id": "path_16",
+      "verbalization": "The source compound resembles Hydrocortamate; Hydrocortamate resembles Prednisolone; Prednisolone treats the target disease."
     }
   ]
 }

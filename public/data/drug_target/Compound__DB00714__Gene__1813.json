@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB00714 - Gene::1813",
-  "verbalization": "The visible evidence suggests that Apomorphine may interact with Drd2 through a shared pathway involving dopamine receptor activity. Specifically, Apomorphine binds to Drd4 and Drd3, which are both involved in dopamine receptor signaling via the Gi/go pathway. This pathway is associated with dopamine neurotransmitter receptor activity, which is a key mechanism in the regulation of dopaminergic signaling. The evidence indicates that Drd2 is a participant in this pathway, suggesting a potential functional link between Apomorphine and Drd2 through the modulation of dopamine receptor activity. The scores from the different paths reflect varying levels of confidence in this relationship, with the highest scores indicating a stronger association. However, the exact nature of the interaction remains uncertain, and further experimental validation would be necessary to confirm the direct relationship between Apomorphine and Drd2.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Apomorphine and Drd2. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -45,7 +45,8 @@
           "label": "is participated by"
         }
       ],
-      "id": "path_6522"
+      "id": "path_1",
+      "verbalization": "The source compound binds Drd4; Drd4 participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go; the target gene participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go."
     },
     {
       "score": {
@@ -90,7 +91,8 @@
           "label": "is participated by"
         }
       ],
-      "id": "path_6523"
+      "id": "path_2",
+      "verbalization": "The source compound binds Drd3; Drd3 participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go; the target gene participates in Dopamine Neurotransmitter Receptor Activity, Coupled Via Gi/go."
     },
     {
       "score": {
@@ -135,7 +137,8 @@
           "label": "is participated by"
         }
       ],
-      "id": "path_6524"
+      "id": "path_3",
+      "verbalization": "The source compound binds Drd4; Drd4 participates in Dopamine Neurotransmitter Receptor Activity; the target gene participates in Dopamine Neurotransmitter Receptor Activity."
     },
     {
       "score": {
@@ -180,7 +183,8 @@
           "label": "is participated by"
         }
       ],
-      "id": "path_6525"
+      "id": "path_4",
+      "verbalization": "The source compound binds Drd3; Drd3 participates in Dopamine Neurotransmitter Receptor Activity; the target gene participates in Dopamine Neurotransmitter Receptor Activity."
     },
     {
       "score": {
@@ -231,7 +235,8 @@
           "Agent Affecting Nervous System"
         ]
       },
-      "id": "path_6526"
+      "id": "path_5",
+      "verbalization": "The source compound binds Drd4; Drd4 is bound by Remoxipride; Remoxipride binds the target gene."
     },
     {
       "score": {
@@ -283,7 +288,8 @@
           "Agent Affecting Nervous System"
         ]
       },
-      "id": "path_6527"
+      "id": "path_6",
+      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Minaprine; Minaprine binds the target gene."
     },
     {
       "score": {
@@ -335,7 +341,8 @@
           "Antiparkinsonian Agent"
         ]
       },
-      "id": "path_6528"
+      "id": "path_7",
+      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Lisuride; Lisuride binds the target gene."
     },
     {
       "score": {
@@ -387,7 +394,8 @@
           "Nitrogen Molecular Entity"
         ]
       },
-      "id": "path_6529"
+      "id": "path_8",
+      "verbalization": "The source compound binds Htr2c; Htr2c is bound by Cabergoline; Cabergoline binds the target gene."
     },
     {
       "score": {
@@ -438,7 +446,8 @@
           "Antiparkinsonian Agent"
         ]
       },
-      "id": "path_6530"
+      "id": "path_9",
+      "verbalization": "The source compound causes Pathological Gambling; Pathological Gambling is caused by Lisuride; Lisuride binds the target gene."
     },
     {
       "score": {
@@ -489,7 +498,8 @@
           "Antiparkinsonian Agent"
         ]
       },
-      "id": "path_6531"
+      "id": "path_10",
+      "verbalization": "The source compound causes Hypersexuality; Hypersexuality is caused by Lisuride; Lisuride binds the target gene."
     },
     {
       "score": {
@@ -540,7 +550,8 @@
           "Nitrogen Molecular Entity"
         ]
       },
-      "id": "path_6532"
+      "id": "path_11",
+      "verbalization": "The source compound causes Pathological Gambling; Pathological Gambling is caused by Cabergoline; Cabergoline binds the target gene."
     },
     {
       "score": {
@@ -591,7 +602,8 @@
           "Nitrogen Molecular Entity"
         ]
       },
-      "id": "path_6533"
+      "id": "path_12",
+      "verbalization": "The source compound causes Hypersexuality; Hypersexuality is caused by Cabergoline; Cabergoline binds the target gene."
     }
   ]
 }

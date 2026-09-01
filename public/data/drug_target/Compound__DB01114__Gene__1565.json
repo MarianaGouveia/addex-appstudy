@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01114 - Gene::1565",
-  "verbalization": "The visible evidence suggests that Chlorphenamine is indirectly linked to Cyp2d6 through its inclusion in the class of Histamine H1 Receptor Antagonists, which includes Carbinoxamine and Diphenhydramine. These compounds bind to Cyp2d6, indicating a potential pharmacological interaction involving the enzyme. The evidence is supported by multiple paths, with Chlorphenamine being a common ancestor in all three pathways, reinforcing its role in the relationship. The low scores in the paths suggest that while there is a general association, the strength of the connection varies, likely due to differences in the specific mechanisms of action and the degree of interaction between Chlorphenamine and Cyp2d6. The presence of multiple pathways pointing to Cyp2d6 as a target highlights the potential for Chlorphenamine to influence the enzyme through different mechanisms, though the exact nature of the interaction remains uncertain.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Chlorphenamine and Cyp2d6. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -50,7 +50,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6892"
+      "id": "path_1",
+      "verbalization": "The source compound is included in Histamine H1 Receptor Antagonists; Histamine H1 Receptor Antagonists includes Carbinoxamine; Carbinoxamine binds the target gene."
     },
     {
       "score": {
@@ -100,7 +101,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6893"
+      "id": "path_2",
+      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Clemastine; Clemastine binds the target gene."
     },
     {
       "score": {
@@ -150,7 +152,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6894"
+      "id": "path_3",
+      "verbalization": "The source compound is included in Histamine H1 Receptor Antagonists; Histamine H1 Receptor Antagonists includes Diphenhydramine; Diphenhydramine binds the target gene."
     },
     {
       "score": {
@@ -200,7 +203,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6895"
+      "id": "path_4",
+      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Carbinoxamine; Carbinoxamine binds the target gene."
     },
     {
       "score": {
@@ -250,7 +254,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6896"
+      "id": "path_5",
+      "verbalization": "The source compound causes Hysteria; Hysteria is caused by Carbinoxamine; Carbinoxamine binds the target gene."
     },
     {
       "score": {
@@ -300,7 +305,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6897"
+      "id": "path_6",
+      "verbalization": "The source compound causes Conversion Disorder; Conversion Disorder is caused by Carbinoxamine; Carbinoxamine binds the target gene."
     },
     {
       "score": {
@@ -358,7 +364,8 @@
           "Histamine-1 Receptor Antagonist"
         ]
       },
-      "id": "path_6898"
+      "id": "path_7",
+      "verbalization": "The source compound resembles Captodiame; Captodiame resembles Brompheniramine; Brompheniramine binds the target gene."
     },
     {
       "score": {
@@ -408,7 +415,8 @@
           "Tertiary Amino Compound"
         ]
       },
-      "id": "path_6899"
+      "id": "path_8",
+      "verbalization": "The source compound causes Labyrinthitis; Labyrinthitis is caused by Diphenhydramine; Diphenhydramine binds the target gene."
     },
     {
       "score": {
@@ -466,7 +474,8 @@
           "Histamine-1 Receptor Antagonist"
         ]
       },
-      "id": "path_6900"
+      "id": "path_9",
+      "verbalization": "The source compound resembles Captodiame; Captodiame resembles Carbinoxamine; Carbinoxamine binds the target gene."
     },
     {
       "score": {
@@ -523,7 +532,8 @@
           "Piperidines"
         ]
       },
-      "id": "path_6901"
+      "id": "path_10",
+      "verbalization": "The source compound resembles Bepotastine; Bepotastine resembles Domperidone; Domperidone binds the target gene."
     },
     {
       "score": {
@@ -577,7 +587,8 @@
           "Histamine-1 Receptor Antagonist"
         ]
       },
-      "id": "path_6902"
+      "id": "path_11",
+      "verbalization": "The source compound resembles Cloperastine; Cloperastine resembles Cinnarizine; Cinnarizine binds the target gene."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB00175 - Disease::DOID:1936",
-  "verbalization": "The visible evidence suggests that Pravastatin may be associated with atherosclerosis through multiple indirect pathways. Pravastatin is linked to muscle swelling and immune-mediated necrotising myopathy, both of which are mediated by Rosuvastatin, which in turn treats atherosclerosis. This indicates a potential role of Pravastatin in modulating inflammatory and metabolic processes that contribute to atherosclerosis. Additionally, Pravastatin's relationship with Ezetimibe, which also treats atherosclerosis, further supports the idea that Pravastatin may influence atherosclerosis through different mechanisms, such as enhancing cholesterol metabolism or reducing inflammation. The cumulative evidence suggests that Pravastatin could be considered a potential repurposable drug for atherosclerosis, though the exact mechanisms and clinical relevance require further investigation.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Pravastatin and Atherosclerosis. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -51,7 +51,8 @@
           "Hmg-Coa Reductase Inhibitor"
         ]
       },
-      "id": "path_180"
+      "id": "path_1",
+      "verbalization": "The source compound causes Muscle Swelling; Muscle Swelling is caused by Rosuvastatin; Rosuvastatin treats the target disease."
     },
     {
       "score": {
@@ -102,7 +103,8 @@
           "Hmg-Coa Reductase Inhibitor"
         ]
       },
-      "id": "path_181"
+      "id": "path_2",
+      "verbalization": "The source compound causes Immune-mediated Necrotising Myopathy; Immune-mediated Necrotising Myopathy is caused by Rosuvastatin; Rosuvastatin treats the target disease."
     },
     {
       "score": {
@@ -153,7 +155,8 @@
           "Organooxygen Compound"
         ]
       },
-      "id": "path_182"
+      "id": "path_3",
+      "verbalization": "The source compound causes Immune-mediated Necrotising Myopathy; Immune-mediated Necrotising Myopathy is caused by Ezetimibe; Ezetimibe treats the target disease."
     },
     {
       "score": {
@@ -207,7 +210,8 @@
           "Non-Neoplastic Disorder By Site"
         ]
       },
-      "id": "path_183"
+      "id": "path_4",
+      "verbalization": "The source compound causes Dermatomyositis; Dermatomyositis is caused by Ezetimibe; Ezetimibe treats the target disease."
     },
     {
       "score": {
@@ -258,7 +262,8 @@
           "Hmg-Coa Reductase Inhibitor"
         ]
       },
-      "id": "path_184"
+      "id": "path_5",
+      "verbalization": "The source compound causes Myoglobinuria; Myoglobinuria is caused by Rosuvastatin; Rosuvastatin treats the target disease."
     },
     {
       "score": {
@@ -309,7 +314,8 @@
           "Hmg-Coa Reductase Inhibitor"
         ]
       },
-      "id": "path_185"
+      "id": "path_6",
+      "verbalization": "The source compound causes Myoglobin Urine Present; Myoglobin Urine Present is caused by Rosuvastatin; Rosuvastatin treats the target disease."
     },
     {
       "score": {
@@ -363,7 +369,8 @@
           "Disorder By Site"
         ]
       },
-      "id": "path_186"
+      "id": "path_7",
+      "verbalization": "The source compound causes Polymyalgia Rheumatica; Polymyalgia Rheumatica is caused by Ezetimibe; Ezetimibe treats the target disease."
     },
     {
       "score": {
@@ -414,7 +421,8 @@
           "Organooxygen Compound"
         ]
       },
-      "id": "path_187"
+      "id": "path_8",
+      "verbalization": "The source compound causes Hypersensitive Syndrome; Hypersensitive Syndrome is caused by Ezetimibe; Ezetimibe treats the target disease."
     },
     {
       "score": {
@@ -465,7 +473,8 @@
           "Organooxygen Compound"
         ]
       },
-      "id": "path_188"
+      "id": "path_9",
+      "verbalization": "The source compound causes Drug Reaction With Eosinophilia And Systemic Symptoms; Drug Reaction With Eosinophilia And Systemic Symptoms is caused by Ezetimibe; Ezetimibe treats the target disease."
     },
     {
       "score": {
@@ -515,7 +524,8 @@
           "Non-Neoplastic Cardiovascular Disorder"
         ]
       },
-      "id": "path_189"
+      "id": "path_10",
+      "verbalization": "The source compound treats Coronary Artery Disease; Coronary Artery Disease localizes Brachiocephalic Artery; Brachiocephalic Artery is localized by the target disease."
     }
   ]
 }

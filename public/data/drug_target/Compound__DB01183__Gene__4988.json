@@ -1,6 +1,6 @@
 {
   "id": "Compound::DB01183 - Gene::4988",
-  "verbalization": "The visible evidence suggests that Naloxone may be associated with Oprm1 through a series of molecular interactions. Naloxone is classified as an opioid antagonist, and multiple pathways indicate that it resembles other opioid analgesics such as Levallorphan, Dezocine, Pentazocine, and Levorphanol, which in turn bind to Oprm1. This implies that Naloxone may exert its effects through a mechanism similar to those of these compounds, potentially by competing for the same binding sites on Oprm1. However, the strength of the evidence varies, with some paths providing stronger support for the direct interaction, while others offer indirect evidence through resemblance to related compounds. The consistency of the resemblance relationships across different pathways suggests a possible functional overlap, but the lack of direct evidence for Naloxone binding to Oprm1 limits the certainty of the conclusion. The observed interactions highlight the potential for Naloxone to modulate Oprm1 activity, though further experimental validation is needed to confirm the exact mechanism of action.",
+  "verbalization": "The available evidence suggests a potential indirect relationship between Naloxone and Oprm1. Each selected path contributes a distinct chain of relations supporting this pair-level interpretation.",
   "paths": [
     {
       "score": {
@@ -51,7 +51,8 @@
           "Opiate Antagonist"
         ]
       },
-      "id": "path_9998"
+      "id": "path_1",
+      "verbalization": "The source compound is included in Opioid Antagonists; Opioid Antagonists includes Methylnaltrexone; Methylnaltrexone binds the target gene."
     },
     {
       "score": {
@@ -111,7 +112,8 @@
           "Organonitrogen Compound"
         ]
       },
-      "id": "path_9999"
+      "id": "path_2",
+      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Dezocine; Dezocine binds the target gene."
     },
     {
       "score": {
@@ -171,7 +173,8 @@
           "Organonitrogen Compound"
         ]
       },
-      "id": "path_10000"
+      "id": "path_3",
+      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Pentazocine; Pentazocine binds the target gene."
     },
     {
       "score": {
@@ -231,7 +234,8 @@
           "Morphinane Alkaloid"
         ]
       },
-      "id": "path_10001"
+      "id": "path_4",
+      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Butorphanol; Butorphanol binds the target gene."
     },
     {
       "score": {
@@ -291,7 +295,8 @@
           "Morphinane Alkaloid"
         ]
       },
-      "id": "path_10002"
+      "id": "path_5",
+      "verbalization": "The source compound resembles Levallorphan; Levallorphan resembles Levorphanol; Levorphanol binds the target gene."
     },
     {
       "score": {
@@ -342,7 +347,8 @@
           "Organonitrogen Compound"
         ]
       },
-      "id": "path_10003"
+      "id": "path_6",
+      "verbalization": "The source compound causes Drug Dependence; Drug Dependence is caused by Pentazocine; Pentazocine binds the target gene."
     }
   ]
 }
