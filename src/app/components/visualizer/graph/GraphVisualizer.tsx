@@ -951,6 +951,7 @@ export default function GraphVisualizer({
 
   // --- Export ---
   const handleExport = async () => {
+    if (!featureFlags.exportContent) return;
     if (!cyRef.current || !pair || !graphVisualizerRef.current || !legendRef.current) return;
 
     setLoading(true);
@@ -1230,7 +1231,7 @@ export default function GraphVisualizer({
       )}
 
       {/* Preview Export Modal */}
-      {previewCanvas && previewCanvasNoLegend && (
+      {featureFlags.exportContent && previewCanvas && previewCanvasNoLegend && (
         <ExportPreviewModal
           canvas={previewCanvas}
           canvasNoLegend={previewCanvasNoLegend}

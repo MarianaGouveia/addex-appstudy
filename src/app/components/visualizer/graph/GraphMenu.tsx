@@ -117,6 +117,7 @@ const GraphMenu = forwardRef<() => void, GraphMenuProps>(({
   };
 
   const handleExportClick = () => {
+    if (!featureFlags.exportContent) return;
     if (!pair) return alert("No pair selected for export!");
     logEvent("graph_exported", { status: "requested" });
     onExport();

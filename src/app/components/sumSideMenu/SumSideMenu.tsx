@@ -103,6 +103,7 @@ export default function SumSideMenu({
   }, [globalExplanation]);
 
   const copyVerbalization = async () => {
+    if (!featureFlags.exportContent) return;
     try {
       await navigator.clipboard.writeText(globalExplanation);
       setCopied(true);
@@ -115,6 +116,7 @@ export default function SumSideMenu({
   };
 
   const downloadVerbalization = () => {
+    if (!featureFlags.exportContent) return;
     if (!globalExplanation) return;
     const blob = new Blob([globalExplanation], {
       type: "text/plain;charset=utf-8",
