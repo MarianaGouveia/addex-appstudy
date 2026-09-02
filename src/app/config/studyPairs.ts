@@ -64,7 +64,13 @@ export const STUDY_PAIRS: readonly StudyPairDefinition[] = [
 ] as const;
 
 function normalizeQueryEntityId(value: string): string {
-  const finalSegment = value.split("__").at(-1) ?? value;
+  // Study links may use either the filename-safe separator (`__`) or the
+  // canonical entity separator (`::`). The explanation loader accepts both
+  // because `toPublicDataSegment` converts punctuation to underscores, so
+  // telemetry must normalize both forms too. Otherwise a valid explanation
+  // can render while resolveStudyIdentity returns null and logging is silently
+  // disabled for the entire visit.
+  const finalSegment = value.split(/__|::/).at(-1) ?? value;
   return finalSegment.replace(/[_:\s-]/g, "").toUpperCase();
 }
 
