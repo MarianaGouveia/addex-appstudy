@@ -75,12 +75,60 @@ const QUEUE_KEY = "study-telemetry-queue-v1";
 const MAX_QUEUED_EVENTS = 25_000;
 const BATCH_SIZE = 100;
 const SCHEMA_VERSION = 1;
+const DUPLICATE_EVENT_WINDOW_MS = 1_000;
 
 let activeFlush: Promise<void> | null = null;
+const recentEventFingerprints = new Map<string, number>();
 
 function createId(): string {
   return globalThis.crypto?.randomUUID?.() ??
     `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function serializeForFingerprint(value: StudyJsonValue): string {
+  if (Array.isArray(value)) {
+    return `[${value.map(serializeForFingerprint).join(",")}]`;
+  }
+  if (value !== null && typeof value === "object") {
+    return `{${Object.keys(value)
+      .sort()
+      .map(
+        (key) =>
+          `${JSON.stringify(key)}:${serializeForFingerprint(value[key])}`
+      )
+      .join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function isImmediateDuplicate(
+  session: StudyTelemetrySession,
+  eventName: StudyEventName,
+  eventData: StudyEventData,
+  now: number
+): boolean {
+  const { identity } = session;
+  const fingerprint = [
+    session.sessionId,
+    identity.pairCode,
+    identity.persona,
+    identity.dataset,
+    eventName,
+    serializeForFingerprint(eventData),
+  ].join("\u0000");
+  const previousTimestamp = recentEventFingerprints.get(fingerprint);
+
+  for (const [key, timestamp] of recentEventFingerprints) {
+    if (now - timestamp > DUPLICATE_EVENT_WINDOW_MS) {
+      recentEventFingerprints.delete(key);
+    }
+  }
+  recentEventFingerprints.set(fingerprint, now);
+
+  return (
+    previousTimestamp !== undefined &&
+    now - previousTimestamp <= DUPLICATE_EVENT_WINDOW_MS
+  );
 }
 
 function readQueue(): QueuedStudyEvent[] {
@@ -147,16 +195,19 @@ export function queueStudyEvent(
   if (!featureFlags.logs || typeof window === "undefined") return;
 
   const { identity } = session;
+  const now = Date.now();
+  if (isImmediateDuplicate(session, eventName, eventData, now)) return;
+
   const event: QueuedStudyEvent = {
     id: createId(),
-    client_timestamp: new Date().toISOString(),
+    client_timestamp: new Date(now).toISOString(),
     session_id: session.sessionId,
     sequence_number: session.nextSequenceNumber++,
     pair_code: identity.pairCode,
     persona: identity.persona,
     dataset: identity.dataset,
     event_name: eventName,
-    elapsed_ms: Math.max(0, Date.now() - session.startedAtEpochMs),
+    elapsed_ms: Math.max(0, now - session.startedAtEpochMs),
     event_data: eventData,
     schema_version: SCHEMA_VERSION,
   };

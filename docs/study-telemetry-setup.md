@@ -2,7 +2,10 @@
 
 The GitHub Pages client sends pseudonymous interaction events to Supabase. It
 keeps unsent events in the browser's `localStorage` and retries when the browser
-is online, focused, or during the ten-second flush interval.
+is online, focused, or during the ten-second flush interval. Identical events
+emitted in the same session within one second are treated as a single event;
+this prevents lifecycle replays and accidental double dispatches from creating
+duplicate rows.
 
 ## 1. Create the database
 

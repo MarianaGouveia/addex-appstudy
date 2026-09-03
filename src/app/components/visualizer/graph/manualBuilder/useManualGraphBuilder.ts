@@ -79,8 +79,11 @@ export function useManualGraphBuilder(pair: Pair, enabled: boolean) {
   }, []);
 
   const clear = useCallback(() => {
-    setNodeIds(new Set());
-    setEdges([]);
+    // Preserve the existing references when the graph is already empty. This
+    // prevents mount/reset effects from emitting a second identical graph
+    // checkpoint without an intervening participant action.
+    setNodeIds((current) => (current.size === 0 ? current : new Set()));
+    setEdges((current) => (current.length === 0 ? current : []));
     nodePositionsRef.current = {};
     cancelConnection();
   }, [cancelConnection]);
