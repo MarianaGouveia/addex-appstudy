@@ -62,7 +62,6 @@ interface QueuedStudyEvent {
   client_timestamp: string;
   session_id: string;
   sequence_number: number;
-  form_code: string;
   pair_code: string;
   persona: string;
   dataset: string;
@@ -106,14 +105,16 @@ function writeQueue(events: QueuedStudyEvent[]): void {
   }
 }
 
-function removeRedundantPairFields(
+function removeDeprecatedFields(
   queuedEvent: QueuedStudyEvent
 ): QueuedStudyEvent {
-  // Older deployed clients persisted these fields in localStorage. Strip them
-  // at upload time so those queued events remain compatible after migration 003.
+  // Older deployed clients may still have these fields in localStorage. Strip
+  // them at upload time so queued events remain compatible with migrations
+  // 003 and 004.
   const event = {
     ...queuedEvent,
   } as QueuedStudyEvent & Record<string, unknown>;
+  delete event.form_code;
   delete event.task_id;
   delete event.source_id;
   delete event.target_id;
@@ -151,7 +152,6 @@ export function queueStudyEvent(
     client_timestamp: new Date().toISOString(),
     session_id: session.sessionId,
     sequence_number: session.nextSequenceNumber++,
-    form_code: identity.formCode,
     pair_code: identity.pairCode,
     persona: identity.persona,
     dataset: identity.dataset,
@@ -178,7 +178,7 @@ export function flushStudyTelemetry(): Promise<void> {
     while (true) {
       const batch = readQueue().slice(0, BATCH_SIZE);
       if (batch.length === 0) return;
-      const uploadBatch = batch.map(removeRedundantPairFields);
+      const uploadBatch = batch.map(removeDeprecatedFields);
 
       try {
         const response = await fetch(

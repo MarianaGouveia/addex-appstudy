@@ -8,8 +8,9 @@ is online, focused, or during the ten-second flush interval.
 
 1. Create a Supabase project in the institution-approved EU region.
 2. Open **SQL Editor** in that project.
-3. Run the SQL files in `supabase/migrations` in numeric order. If migration
-   `001` was already applied, run `002_accept_google_form_ids.sql` now.
+3. Run the SQL files in `supabase/migrations` in numeric order. For an existing
+   installation, apply every migration that has not been run yet, including
+   `004_remove_form_code.sql`.
 4. In **Table Editor**, verify that `interaction_logs` exists.
 
 The migration permits the anonymous website role to insert rows only. It does
@@ -41,30 +42,18 @@ In `src/app/config/featureFlags.ts`:
 
 ```ts
 logs: true,
-forms: true,
 ```
 
 Keep `logs: false` until the database and environment variables are ready.
-With `forms: false`, every event deliberately uses `unassigned`.
 
 ## 4. Create study links
 
-When form logging is enabled, include the Google Form ID in each study URL.
-For a link such as
-`https://docs.google.com/forms/d/1Ydx6leS-Cst9bupwwnTBIIUwkNVg4dw0grLgtO9GHMA`,
-the ID is the segment after `/forms/d/`:
+The pair code is derived from `task`, `source`, `target`, and `modality`; it is
+not accepted directly from the URL. A `form` parameter is not required and is
+ignored if it is present in an older link.
 
-```text
-&form=1Ydx6leS-Cst9bupwwnTBIIUwkNVg4dw0grLgtO9GHMA
-```
-
-The application also accepts a URL-encoded full `docs.google.com/forms` link,
-but stores only its ID. Missing, invalid, or non-Google values fall back to
-`unassigned`. The pair code is derived from `task`, `source`, `target`, and
-`modality`; it is not accepted directly from the URL.
-
-`pair_code` is the canonical stored pair identifier. Migration `003` removes
-the redundant `task_id`, `source_id`, `target_id`, and `modality` columns.
+`pair_code` is the canonical stored pair identifier. Visits can be grouped by
+`session_id` and ordered using `received_at` or `client_timestamp`.
 
 Example result:
 
