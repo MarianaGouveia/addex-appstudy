@@ -59,6 +59,13 @@ Notes:
 
 The root route renders the same study interface as `/pages/search`.
 
+## Supabase availability during the study
+
+A daily GitHub Actions database check is available for periods without participants.
+Follow [activation and monitoring instructions](docs/supabase-health-check.md),
+including the one-time SQL migration. This is a best-effort Free-plan workaround;
+it does not guarantee continuous availability.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
