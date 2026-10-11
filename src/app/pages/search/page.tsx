@@ -248,20 +248,6 @@ function SearchPageContent() {
   }, [logEvent, panelLayout, showSummaryMenu]);
 
   const handleSlideLeft = useCallback(() => {
-    if (isSummarizeModality) {
-      if (panelLayout !== "explanation_only") {
-        logEvent("panel_layout_changed", {
-          previous_layout: panelLayout,
-          new_layout: "explanation_only",
-          trigger: "panel_arrow",
-        });
-      }
-      setShowSummaryMenu(true);
-      setRightCollapsed(false);
-      setGraphCollapsed(true);
-      return;
-    }
-
     // Left arrow sequence:
     // 1) If graph is hidden, bring it back (both visible).
     // 2) If graph is visible, toggle verbalization panel collapsed/expanded.
@@ -298,7 +284,6 @@ function SearchPageContent() {
     setRightCollapsed((prev) => !prev);
   }, [
     graphCollapsed,
-    isSummarizeModality,
     logEvent,
     panelLayout,
     rightCollapsed,

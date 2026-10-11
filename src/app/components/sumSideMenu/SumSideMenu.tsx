@@ -202,7 +202,7 @@ export default function SumSideMenu({
     },
     tabsContainer: {
       display: "flex",
-      marginTop: isSummarizeModality ? 0 : "clamp(2.5rem, 3vw, 3.5rem)",
+      marginTop: "clamp(2.5rem, 3vw, 3.5rem)",
       marginBottom: "1rem",
       borderBottom: "1px solid #d1d5db",
     },
@@ -245,7 +245,6 @@ export default function SumSideMenu({
 
   return (
     <aside style={styles.aside}>
-      {!isSummarizeModality && (
         <div style={styles.slideControls}>
           {!collapsed && !expanded && (
             <button
@@ -267,7 +266,6 @@ export default function SumSideMenu({
             {collapsed ? "<" : ">"}
           </button>
         </div>
-      )}
 
       {!collapsed && (
         <>
